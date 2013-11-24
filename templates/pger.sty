@@ -1,0 +1,95 @@
+\ProvidesPackage{pger}[2013/11/19 v1.0 (Stefan Thöni)]
+
+\RequirePackage{ppsdocument}
+\RequirePackage{hyperref}
+\RequirePackage{enumerate}
+\RequirePackage[titles]{tocloft}
+\RequirePackage{lipsum}
+\RequirePackage{tabto}
+\RequirePackage{needspace}
+
+\widowpenalty=300
+\clubpenalty=300
+
+\newcommand{\casenumber}[1]{\def\@casenumber{#1}}
+\newcommand{\ruling}[1]{\def\@ruling{#1}}
+\newcommand{\rulinglarge}[1]{\def\@rulinglarge{#1}}
+\newcommand{\rulingdefinitarticle}[1]{\def\@rulingdefinitarticle{#1}}
+\newcommand{\decisiondate}[1]{\def\@decisiondate{#1}}
+\newcommand{\judges}[1]{\def\@judges{#1}}
+\newcommand{\plaintiff}[1]{\def\@plaintiff{#1}}
+\newcommand{\respondent}[1]{\def\@respondent{#1}}
+
+\setlength{\emergencystretch}{3em}
+
+\newif\ifanon
+
+\newcommand{\name}[3]
+{
+\ifanon
+	\expandafter\newcommand\csname anon#1\endcsname{#3.\_\_\_\_\_}
+\else
+	\expandafter\newcommand\csname anon#1\endcsname{#2}
+\fi
+}
+
+\parindent 0cm
+\parskip 0.3cm
+\let\svpar\par
+
+\newenvironment{hang}{\hangindent 2cm\def\par{\svpar\hangindent
+2cm\parindent 2cm}}
+
+\newcommand{\hangcmd}[2]
+{
+	\begin{hang}
+	#1 \tabto{2cm} #2
+	\end{hang}
+}
+
+{\let\par\svpar\parindent 0in}
+
+\newcounter{xn}
+\newcounter{xnn}
+\newcounter{xnnn}
+\newcounter{xnnnn}
+
+\newcommand{\N}[2]{%
+	\vspace{0.2cm}
+	\refstepcounter{xn}%
+	\hangcmd{\textbf{\arabic{xn}.}}{\textbf{#1} \par #2} \needspace{0.5cm}
+}
+
+\newcommand{\NN}[2]{%
+	\vspace{0.2cm}
+	\refstepcounter{xnn}%
+	\hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.}}{\textbf{#1} \par #2} \needspace{0.5cm}
+}
+
+\newcommand{\NNN}[2]{%
+	\vspace{0.2cm}
+	\refstepcounter{xnnn}%
+	\hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}{#1 \par #2} \needspace{0.5cm}
+}
+
+\newcommand{\n}[1]{%
+   \refstepcounter{xn}%
+   \hangcmd{\textbf{\arabic{xn}.}}{#1}
+}
+
+\newcommand{\nn}[1]{%
+   \refstepcounter{xnn}%
+   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.}}{#1}
+}
+
+\newcommand{\nnn}[1]{%
+   \refstepcounter{xnnn}%
+   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}{#1}
+}
+
+\newcommand{\nnnn}[1]{%
+   \refstepcounter{xnnnn}%
+   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.\arabic{xnnnn}.}}{#1}
+}
+
+\newcommand{\titlespace}{0.5cm}

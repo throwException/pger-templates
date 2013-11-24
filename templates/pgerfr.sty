@@ -1,0 +1,120 @@
+\ProvidesPackage{pgerfr}[2013/11/19 v1.0 (Stefan Thöni)]
+
+\RequirePackage{pger}
+\RequirePackage[babel,french=quotes]{csquotes}
+\RequirePackage[french]{babel}
+
+\newcommand{\draft}[1]{
+\RequirePackage{draftwatermark}
+\SetWatermarkText{brouillon #1}
+\SetWatermarkLightness{0.8}
+\SetWatermarkScale{0.9}}
+
+\author{Tribunal Pirate}
+
+\newcommand{\judgement}{
+	\ruling{jugement}
+	\rulinglarge{Jugement}
+	\rulingdefinitarticle{ce}
+}
+
+\newcommand{\decision}{
+	\ruling{arrêt}
+	\rulinglarge{Arrêt}
+	\rulingdefinitarticle{cet}
+}
+
+\newcommand{\order}{
+	\ruling{disposition}
+	\rulinglarge{Disposition}
+	\rulingdefinitarticle{cette}
+}
+
+\newcommand{\interimorder}{
+	\ruling{disposition provisoire}
+	\rulinglarge{Disposition provisoire}
+	\rulingdefinitarticle{cette}
+}
+
+\newcommand{\dat}[3]
+{
+\ifanon
+  \_\_.\_\_.\_\_\_\_
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\daty}[3]
+{
+\ifanon
+  \_\_.\_\_.#1
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\datm}[3]
+{
+\ifanon
+  \_\_.#2.#1
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\datl}[3]
+{
+\ifanon
+  \_\_~\_\_\_\_\_~\_\_\_\_
+\else
+  #3~#2~#1
+\fi
+}
+
+\newcommand{\datly}[3]
+{
+\ifanon
+  \_\_~\_\_\_\_\_~#1
+\else
+  #3~#2~#1
+\fi
+}
+
+\newcommand{\datlm}[3]
+{
+\ifanon
+  \_\_~#2~#1
+\else
+  #3~#2~#1
+\fi
+}
+
+\renewcommand{\maketitle}{
+	\selectlanguage{french}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglarge ~du~\@decisiondate}
+	\enlargethispage{5cm}
+	\vspace{\titlespace} ~ \\
+	
+	\hfill{\Huge tribunal\textbf{pirate}} \\
+	\vspace{\titlespace} \\
+	
+	{ \footnotesize \line(1,0){100} \\
+	Numéro de dossier \@casenumber} \\
+	\vspace{\titlespace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Composition & \@judges \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Parties & \@plaintiff \\
+	\vspace{\titlespace} \\
+	& contre \\
+	\vspace{\titlespace} \\
+	& \@respondent \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Objet & \@subject \\
+	\end{tabular}
+}

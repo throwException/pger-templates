@@ -1,0 +1,141 @@
+\ProvidesPackage{pgerde}[2013/11/19 v1.0 (Stefan Thöni)]
+
+\RequirePackage{pger}
+\RequirePackage[babel,german=quotes]{csquotes}
+\RequirePackage[ngerman]{babel}
+
+\newcommand{\draft}[1]{
+\RequirePackage{draftwatermark}
+\SetWatermarkText{Entwurf #1}
+\SetWatermarkLightness{0.8}
+\SetWatermarkScale{0.9}}
+
+\author{Piratengericht}
+
+\newcommand{\judgement}{
+	\ruling{Urteil}
+	\rulinglarge{Urteil}
+	\rulingdefinitarticle{dieses}
+}
+
+\newcommand{\decision}{
+	\ruling{Beschluss}
+	\rulinglarge{Beschluss}
+	\rulingdefinitarticle{diesen}
+}
+
+\newcommand{\order}{
+	\ruling{Verfügung}
+	\rulinglarge{Verfügung}
+	\rulingdefinitarticle{diese}
+}
+
+\newcommand{\interimorder}{
+	\ruling{Zwischenverfügung}
+	\rulinglarge{Zwischenverfügung}
+	\rulingdefinitarticle{diese}
+}
+
+\newcommand{\dat}[3]
+{
+\ifanon
+  \_\_.\_\_.\_\_\_\_
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\daty}[3]
+{
+\ifanon
+  \_\_.\_\_.#1
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\datm}[3]
+{
+\ifanon
+  \_\_.#2.#1
+\else
+  #3.#2.#1
+\fi
+}
+
+\newcommand{\datl}[3]
+{
+\ifanon
+  \_\_.~\_\_\_\_\_~\_\_\_\_
+\else
+  #3.~#2~#1
+\fi
+}
+
+\newcommand{\datly}[3]
+{
+\ifanon
+  \_\_.~\_\_\_\_\_~#1
+\else
+  #3.~#2~#1
+\fi
+}
+
+\newcommand{\datlm}[3]
+{
+\ifanon
+  \_\_.~#2~#1
+\else
+  #3.~#2~#1
+\fi
+}
+
+\renewcommand{\maketitle}{
+	\selectlanguage{ngerman}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglarge ~vom~\@decisiondate}
+	\enlargethispage{5cm}
+	\vspace{\titlespace} ~ \\
+	
+	\hfill{\Huge\textbf{piraten}gericht} \\
+	\vspace{\titlespace} \\
+	
+	{ \footnotesize \line(1,0){100} \\
+	Geschäftsnummer \@casenumber} \\
+	\vspace{\titlespace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglarge ~vom~\@decisiondate}} \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Besetzung & \@judges \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Parteien & \@plaintiff \\
+	\vspace{\titlespace} \\
+	& gegen \\
+	\vspace{\titlespace} \\
+	& \@respondent \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Gegenstand & \@subject \\
+	\end{tabular}
+}
+
+\newcommand{\signature}[1]
+{
+	\vspace{0.3cm}
+	Im Namen des Piratengerichts \\
+	\vspace{1.3cm} \\
+	#1 \\
+	\vspace{0.3cm}
+}
+
+\newcommand{\appeal}{
+\vfill
+\flushbottom
+\textbf{Rechtsmittelbelehrung}
+
+Gegen \@rulingdefinitarticle~\@ruling~kann innerhalb von 30 Tagen ab Eröffnung schriftlich Beschwerde in Zivilsachen erhoben werden. Diese Frist steht still vom siebten Tag vor Ostern bis und mit dem siebten Tag nach Ostern; vom 15. Juli bis und mit 15. August und vom 18. Dezember bis und mit dem 2. Januar. Die Beschwerde ist einzureichen an das 
+
+\hspace{0.5cm} Schweizerisches Bundesgericht, Av. du Tribunal fédéral 29, 1000 Lausanne 14 
+
+Die Beschwerde hat die Begehren, deren Begründung mit Angabe der Beweismittel und die Unterschriften des Beschwerdeführers oder seines Vertreters zu enthalten. Der angefochtene Entscheid und die als Beweismittel angerufenen Urkunden sind der Beschwerde beizulegen, soweit der Beschwerdeführer sie in Händen hält. 
+}
