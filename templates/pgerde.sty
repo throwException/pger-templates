@@ -36,6 +36,18 @@
 	\rulingdefinitarticle{diese}
 }
 
+\newcommand{\notification}{
+	\ruling{Mitteilung}
+	\rulinglarge{Mitteilung}
+	\rulingdefinitarticle{diese}
+}
+
+\newcommand{\summoning}{
+	\ruling{Vorladung}
+	\rulinglarge{Vorladung}
+	\rulingdefinitarticle{diese}
+}
+
 \newcommand{\dat}[3]
 {
 \ifanon
@@ -119,6 +131,69 @@
 	\end{tabular}
 }
 
+\newcommand{\makesummoning}{
+	\selectlanguage{ngerman}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglarge ~vom~\@decisiondate}
+	\enlargethispage{5cm}
+	\vspace{\summonspace} ~ \\
+	
+	\hfill{\Huge\textbf{piraten}gericht} \\
+	\vspace{\summonspace} \\
+	
+	{ \footnotesize \line(1,0){100} \\
+	Geschäftsnummer \@casenumber} \\
+	\vspace{\summonspace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglarge ~vom~\@decisiondate}} \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Parteien & \@plaintiff \\
+	\vspace{\summonspace} \\
+	& gegen \\
+	\vspace{\summonspace} \\
+	& \@respondent \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Gegenstand & \@subject \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Verfahrenshandlung & \@act \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Öffentlichkeit & \@publicity \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Vorgeladen & \@summonperson \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Ort & \@summonplace \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Termin & \@summondate \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Verschiebung & \requestdelay \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Säumnisfolgen & \@delayresult \\
+	\end{tabular}
+}
+
+\renewcommand{\articlelanguage}{de}
+\renewcommand{\wordart}{Art.}
+\renewcommand{\wordabs}{Abs.}
+\renewcommand{\wordlit}{lit.}
+\renewcommand{\wordziff}{Ziff.}
+\renewcommand{\lawemrk}{EMRK}
+\renewcommand{\lawbv}{BV}
+\renewcommand{\lawzgb}{ZGB}
+\renewcommand{\lawzpo}{ZPO}
+\renewcommand{\lawstgb}{StGB}
+\renewcommand{\lawstpo}{StPO}
+\renewcommand{\lawstpps}{StPPS}
+\renewcommand{\lawfio}{FIO}
+\renewcommand{\lawpgo}{PGO}
+\renewcommand{\lawuao}{UAO}
+\renewcommand{\lawvo}{VO}
+\renewcommand{\lawstppsnumber}{2505}
+\renewcommand{\lawfionumber}{2293}
+\renewcommand{\lawpgonumber}{2444}
+\renewcommand{\lawuaonumber}{2445}
+\renewcommand{\lawvonumber}{2446}
+
 \newcommand{\signature}[1]
 {
 	\vspace{0.3cm}
@@ -126,6 +201,25 @@
 	\vspace{1.3cm} \\
 	#1 \\
 	\vspace{0.3cm}
+}
+
+\newcommand{\requestdelay}{Die Parteien können bei vorliegen wichtiger Gründe eine Verschiebung des Termins beantragen. Der Antrag ist rechtzeitig vor dem Termin beim Piratengericht zu stellen.}
+
+\newcommand{\singlejudge}{%
+\nn{%
+Der Präsident des Piratengericht handelt gestützt auf \pgo{9}[3] als Einzelschiedsrichter im Vorverfahren bezüglich superprovisorische und provisorische Massnahmen. Dies ist insbesondere aufgrund der den provisorischen Massnahmen innewohnenden Dringlichkeit angezeigt.
+
+Für das Hauptsacheverfahren wird hernach ein Kollegialschiedsgericht zuständig sein. Dieses kann die nachfolgenden verfahrensleitenden Entscheidungen des Einzelschiedsrichters abändern.
+}}
+
+\newcommand{\base}{%
+\nn{Das Verfahren vor dem Piratengericht wird subsidiär zum \href{http://www.admin.ch/opc/de/classified-compilation/20061121/index.html\#a353}{3. Teil der ZPO}, zu \stpps{16} und zur \href{http://projects.piratenpartei.ch/dmsf_files/2444?download=}{PGO} durch die Kapitel 3 bis 7, 9 und 10 des 1. Teil der ZPO sowie die Kapitel 3 und 5 des 2. Teil der ZPO bestimmt, soweit das Schiedsgericht nichts anderes festlegt.}
+
+\nnn{Abweichend von \zpo{129} ist die Verfahrenssprache Deutsch, wenn mindestens eine der Parteien der deutschen Sprache mächtig ist. Notwendige Übersetzungen lässt das Schiedsgericht anfertigen.}
+\nnn{Abweichend von \zpo{130}[1] können die Parteien auf die Unterschrift oder qualifizierte elektronische Signatur der Eingabe verzichten. Die so eingebende Partei hat ihre Eingabe auf verlangen des Schiedsgerichts mit Unterschrift nachzureichen.}
+\nnn{Abweichend von \zpo{130}[2] können die Eingaben der Parteien an das Schiedsgericht per einfacher Email erfolgen, wobei die eingebende Partei das Risiko aus Verlust oder Verspätung trägt.}
+\nnn{Abweichend von \zpo{138} und \zpo{139} erfolgt die elektronische Zustellung per anerkannter Zustellplattform, so die Partei auf einer solchen registriert ist. Amsonsten erfolgt die Zustellung per einfacher Email. Wird der Empfang nicht binnen 24 Stunden bestätigt, so erfolgt die Zustellung per eingeschriebener Post.}
+\nnn{Abweichend von \zpo{145} stehen die Fristen im Schiedsverfahren nicht still.}
 }
 
 \newcommand{\appeal}{

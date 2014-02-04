@@ -36,6 +36,18 @@
 	\rulingdefinitarticle{cette}
 }
 
+\newcommand{\notification}{
+	\ruling{message}
+	\rulinglarge{Message}
+	\rulingdefinitarticle{cette}
+}
+
+\newcommand{\summoning}{
+	\ruling{convocation}
+	\rulinglarge{Convocation}
+	\rulingdefinitarticle{cette}
+}
+
 \newcommand{\dat}[3]
 {
 \ifanon
@@ -118,3 +130,76 @@
 	Objet & \@subject \\
 	\end{tabular}
 }
+
+
+\newcommand{\makesummoning}{
+	\selectlanguage{french}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglarge ~du~\@decisiondate}
+	\enlargethispage{5cm}
+	\vspace{\summonspace} ~ \\
+	
+	\hfill{\Huge tribunal\textbf{pirate}} \\
+	\vspace{\summonspace} \\
+	
+	{ \footnotesize \line(1,0){100} \\
+	Numéro de dossier \@casenumber} \\
+	\vspace{\summonspace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Assignant & \@judges \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Parties & \@plaintiff \\
+	\vspace{\summonspace} \\
+	& contre \\
+	\vspace{\summonspace} \\
+	& \@respondent \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Objet & \@subject \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Assignée & \@summonperson \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Lieu & \@summonplace \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Date & \@summondate \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Déplacement & \requestdelay \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Implication de retard & \@delayresult \\
+	\end{tabular}
+}
+
+\renewcommand{\articlelanguage}{fr}
+\renewcommand{\wordart}{art.}
+\renewcommand{\wordabs}{al.}
+\renewcommand{\wordlit}{lit.}
+\renewcommand{\wordziff}{ch.}
+\renewcommand{\lawemrk}{CEDH}
+\renewcommand{\lawbv}{Cst}
+\renewcommand{\lawzgb}{CC}
+\renewcommand{\lawzpo}{CPC}
+\renewcommand{\lawstgb}{CP}
+\renewcommand{\lawstpo}{CPP}
+\renewcommand{\lawstpps}{StPPS}
+\renewcommand{\lawfio}{RFI}
+\renewcommand{\lawpgo}{RTP}
+\renewcommand{\lawuao}{RVG}
+\renewcommand{\lawvo}{RA}
+\renewcommand{\lawstppsnumber}{2744}
+\renewcommand{\lawfionumber}{2746}
+\renewcommand{\lawpgonumber}{2752}
+\renewcommand{\lawuaonumber}{2751}
+\renewcommand{\lawvonumber}{2745}
+
+\newcommand{\signature}[1]
+{
+	\vspace{0.3cm}
+	Au nom du Tribunal Pirate \\
+	\vspace{1.3cm} \\
+	#1 \\
+	\vspace{0.3cm}
+}
+
+\newcommand{\requestdelay}{Les parties peuvent demander un déplacement pour des raisons importantes. La demande doit être deposé au Tribunal Pirate à temps avant la date.}
