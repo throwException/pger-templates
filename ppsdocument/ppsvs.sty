@@ -1,0 +1,64 @@
+%!TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Matthias Hurni based on the work from Christian Häusler
+% Email: matthias.hurni@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesPackage{ppsvs}[2012/10/29 v1.0 (Matthias 'COBRA' Hurni)]
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+\RequirePackage[english,french,italian,ngerman]{babel}
+
+\addto\captionsenglish{
+	\renewcommand{\ppslogoww}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogowwnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppslogost}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogostnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppsname}{\textbf{piraten}partei Wallis}
+	\renewcommand{\ppsnamelong}{Piratenpartei Sektion Wallis}
+	\renewcommand{\ppsdomain}{vs.piratenpartei.ch}
+}
+
+\addto\captionsfrench{
+	\renewcommand{\ppslogoww}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogowwnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppslogost}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogostnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppsname}{Parti\textbf{pirate} valaisan}
+	\renewcommand{\ppsnamelong}{Partipirate section valaisan}
+	\renewcommand{\ppsdomain}{vs.partipirate.ch}
+}
+
+% Use french texts as fallback to italian
+\addto\captionsitalian{
+	\renewcommand{\ppslogoww}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogowwnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppslogost}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogostnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppsname}{Parti\textbf{pirate} valaisan}
+	\renewcommand{\ppsnamelong}{Partipirate section valaisan}
+	\renewcommand{\ppsdomain}{vs.partipirate.ch}
+}
+
+% Use german text as fallback to english
+\addto\captionsngerman{
+	\renewcommand{\ppslogoww}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogowwnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppslogost}{logo/sec/vs/st.pdf}
+	\renewcommand{\ppslogostnego}{logo/sec/vs/stnego.pdf}
+	\renewcommand{\ppsname}{\textbf{piraten}partei Wallis}
+	\renewcommand{\ppsnamelong}{Piratenpartei Sektion Wallis}
+	\renewcommand{\ppsdomain}{vs.piratenpartei.ch}
+}
+
+%\providecaptionname{english}{\ppslogowwnegb}{logo/en/wwnegb.pdf}
+%\providecaptionname{french}{\ppslogowwnegb}{logo/fr/wwnegb.pdf}
+%\providecaptionname{italian}{\ppslogowwnegb}{logo/it/wwnegb.pdf}
+%\providecaptionname{ngerman}{\ppslogowwnegb}{logo/de/wwnegb.pdf}
+
+%\providecaptionname{english}{\ppslogostnegb}{logo/en/stnegb.pdf}
+%\providecaptionname{french}{\ppslogostnegb}{logo/fr/stnegb.pdf}
+%\providecaptionname{italian}{\ppslogostnegb}{logo/it/stnegb.pdf}
+%\providecaptionname{ngerman}{\ppslogostnegb}{logo/de/stnegb.pdf}

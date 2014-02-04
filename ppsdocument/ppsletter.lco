@@ -1,0 +1,91 @@
+% !TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler based on the work from Pascal Vizeli
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesFile{ppsletter.lco}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
+
+\RequirePackage{ppsbasic}
+\RequirePackage{multirow}
+
+\LoadLetterOption{SN}
+\KOMAoptions{foldmarks=true}
+\KOMAoptions{foldmarks=blmTp}
+
+
+%-------------------------------------------------------
+% New-Var
+\newkomavar{departement}
+\newkomavar{partei}
+\newkomavar{fromstreet}
+\newkomavar{fromcity}
+
+% for translate
+\newkomavar{memberid}
+\newkomavar{membernick}
+\newkomavar{memberemail}
+
+\setkomavar{date}{\today}
+
+% kompatibilitaet zu komascript
+\setkomavar{fromaddress}{\usekomavar{fromstreet}\\\usekomavar{fromcity}}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+\ifxetex
+	\setkomafont{subject}{\bfseries}
+\else
+	% nothing
+\fi
+
+\KOMAoptions{fontsize=11pt}
+
+\DeclareFixedFont{\headtext}{\encodingdefault}{\familydefault}{\seriesdefault}{\shapedefault}{8pt}
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+
+\setkomavar{fromurl}{\ppsdomain}
+\setkomavar{fromlogo}{\includegraphics[width=5.5cm]{\ppslogost}}
+
+\setkomavar{partei}{\ppsnamelong}
+
+%-------------------------------------------------------
+% Positionnen
+\@setplength{lochpos}{-2.5cm}
+\@setplength{locvpos}{6.3cm}
+
+
+%-------------------------------------------------------
+% Location
+\setkomavar{location}{\headtext
+	\begin{tabular}{p{2cm}l}
+		\ifkomavarempty{memberid}{}{MemberNo: & \usekomavar{memberid} \\}
+		\ifkomavarempty{membernick}{}{Nick: & \usekomavar{membernick} \\}
+		\ifkomavarempty{memberemail}{}{E-Mail: & \usekomavar{memberemail} \\}
+	\end{tabular}
+}
+
+%-------------------------------------------------------
+% Kopfzeile
+\firsthead{\headtext
+	\begin{tabular}{p{6.5cm}p{6cm}p{6cm}}
+		\multirow{5}{*}[0.5cm]{\usekomavar{fromlogo}} & \usekomavar{partei} & \\  
+		& \usekomavar{departement} & \\
+		& \usekomavar{fromname} & \\ 
+		& \usekomavar{fromstreet} & \usekomavar{fromemail} \\
+		& \usekomavar{fromcity} & \usekomavar{fromurl} \\
+	\end{tabular}
+}
+
+
+%-------------------------------------------------------
+% Fusszeile
+%\firstfoot{%
+%
+%
+%}
+\endinput
