@@ -1,0 +1,53 @@
+\ProvidesPackage{ppslaw}[2011/10/14 v 0.1 PPS Law]
+
+\KOMAoptions{DIV=15}
+\RequirePackage{tabularx}
+\setcounter{secnumdepth}{0}
+
+\newcommand{\art}[2]
+{
+	\vspace{0.2cm}
+	\begin{tabular}{ p{2cm} p{14cm} }
+	\textbf{Art. #1} & \textbf{#2} \\
+	\end{tabular}
+	
+	\nopagebreak
+	
+}
+
+\newcommand{\abs}[2]
+{
+	\begin{tabular}{ p{16.5cm} }
+	\high{#1} #2 \\
+	\end{tabular}
+	
+
+	
+}
+
+\newcommand{\txt}[1]
+{
+	\begin{tabular}{ p{16.5cm} }
+	#1 \\
+	\end{tabular}
+	
+
+	
+}
+
+\newcommand{\lit}[2]
+{
+	\begin{tabular}{ p{1cm} p{15cm} }
+	#1. & #2 \\
+	\end{tabular}
+	
+	
+	
+}
+
+\newcommand{\refart}[1]{Art. #1}
+\newcommand{\refabs}[2]{Art. #1 Abs. #2}
+\newcommand{\reflit}[3]{Art. #1 Abs. #2 Lit. #3}
+\newcommand{\removed}{\tiny \textit{aufgehoben}}
+\newcommand{\uber}[1]{$^{\textnormal{\tiny #1}}$}
+\newcommand{\high}[1]{$^{\textnormal{\small #1}}$}

@@ -1,0 +1,163 @@
+%!TEX encoding = UTF-8 Unicode%-------------------------------------------------------
+% Author: Christian HŠusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesPackage{ppsbasic}[2011/11/01 v1.0 (Christian 'Corvus' HŠusler)]
+
+\RequirePackage{calc}
+\RequirePackage{scrbase}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+
+\RequirePackage[parfill]{parskip}
+\RequirePackage{ifxetex}
+
+\ifxetex
+	\RequirePackage{fontspec}
+	\RequirePackage{xltxtra}
+	\RequirePackage{xunicode}
+	
+	\setromanfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	\setsansfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+\else
+	\RequirePackage[utf8]{inputenc}
+	\RequirePackage[T1]{fontenc}
+\fi
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% -----------------------------------
+% Farben
+% -----------------------------------
+\RequirePackage{xcolor}
+
+\definecolor{shadetop}{cmyk}{0,0.25,1,0}
+\definecolor{shadebottom}{cmyk}{0,0.55,1,0}
+
+\definecolor{weiss}{cmyk}{0,0,0,0}
+\definecolor{gelb}{cmyk}{0,0.1,1,0}
+\definecolor{orange}{cmyk}{0,0.35,1,0}
+\definecolor{hellrot}{cmyk}{0,0.75,1,0}
+\definecolor{dunkelrot}{cmyk}{0.15,1,0.6,0}
+\definecolor{schwarz}{cmyk}{1,1,1,1}
+\definecolor{violet}{cmyk}{0.65,0.75,0,0.35}
+\definecolor{hellviolet}{RGB}{197,159,242}
+\definecolor{blau}{cmyk}{0.8,0.5,0,0}
+\definecolor{grau}{cmyk}{0,0,0,0.28}
+
+% -----------------------------------
+% Grafiken
+% -----------------------------------
+\RequirePackage{graphicx}
+\RequirePackage{eso-pic}
+
+\newlength{\tlogowidth}
+\newlength{\hlogoheight}
+\newlength{\hlogospace}
+\newlength{\tpagemargin}
+\newlength{\abstractwidth}
+\AtBeginDocument{
+	\setlength{\hlogoheight}{\headheight/3*2}
+	\setlength{\hlogospace}{\hlogoheight/2}
+	\setlength{\tlogowidth}{\linewidth/2}
+	\setlength{\tpagemargin}{\textheight/10}
+	\setlength{\abstractwidth}{\linewidth/10*8}
+}
+
+\newcommand{\biglogost}{%
+	\includegraphics[width=\tlogowidth]{\ppslogoww}
+}
+
+\newcommand{\biglogonego}{%
+	\includegraphics[width=\tlogowidth]{\ppslogowwnego}
+}
+
+\newcommand{\biglogonegb}{%
+	\includegraphics[width=\tlogowidth]{\ppslogowwnegb}
+}
+
+\newcommand{\smalllogost}{%
+	\includegraphics[height=\hlogoheight]{\ppslogost}%
+}
+
+\newcommand{\smalllogonego}{%
+	\includegraphics[height=\hlogoheight]{\ppslogostnego}%
+}
+
+\newcommand{\smalllogonegb}{%
+	\includegraphics[height=\hlogoheight]{\ppslogostnegb}%
+}
+\newcommand{\headerlogo}{%
+	\smalllogost%
+	\vspace{\hlogospace}%
+}
+
+\newcommand{\wellen}{%
+	\put(0,0){\includegraphics[width=\paperwidth]{logo/spez/greywave.pdf}%
+}}
+
+% -----------------------------------
+% Tikz Styles
+% -----------------------------------
+\RequirePackage{tikz}
+
+\tikzset{help lines/.style={color=violet!30, very thin}}
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+\RequirePackage[english,french,italian,ngerman]{babel}
+
+\providecaptionname{english}{\ppslogoww}{logo/en/ww.pdf}
+\providecaptionname{french}{\ppslogoww}{logo/fr/ww.pdf}
+\providecaptionname{italian}{\ppslogoww}{logo/it/ww.pdf}
+\providecaptionname{ngerman}{\ppslogoww}{logo/de/ww.pdf}
+
+\providecaptionname{english}{\ppslogowwnego}{logo/en/wwnego.pdf}
+\providecaptionname{french}{\ppslogowwnego}{logo/fr/wwnego.pdf}
+\providecaptionname{italian}{\ppslogowwnego}{logo/it/wwnego.pdf}
+\providecaptionname{ngerman}{\ppslogowwnego}{logo/de/wwnego.pdf}
+
+\providecaptionname{english}{\ppslogowwnegb}{logo/en/wwnegb.pdf}
+\providecaptionname{french}{\ppslogowwnegb}{logo/fr/wwnegb.pdf}
+\providecaptionname{italian}{\ppslogowwnegb}{logo/it/wwnegb.pdf}
+\providecaptionname{ngerman}{\ppslogowwnegb}{logo/de/wwnegb.pdf}
+
+\providecaptionname{english}{\ppslogost}{logo/en/st.pdf}
+\providecaptionname{french}{\ppslogost}{logo/fr/st.pdf}
+\providecaptionname{italian}{\ppslogost}{logo/it/st.pdf}
+\providecaptionname{ngerman}{\ppslogost}{logo/de/st.pdf}
+
+\providecaptionname{english}{\ppslogostnego}{logo/en/stnego.pdf}
+\providecaptionname{french}{\ppslogostnego}{logo/fr/stnego.pdf}
+\providecaptionname{italian}{\ppslogostnego}{logo/it/stnego.pdf}
+\providecaptionname{ngerman}{\ppslogostnego}{logo/de/stnego.pdf}
+
+\providecaptionname{english}{\ppslogostnegb}{logo/en/stnegb.pdf}
+\providecaptionname{french}{\ppslogostnegb}{logo/fr/stnegb.pdf}
+\providecaptionname{italian}{\ppslogostnegb}{logo/it/stnegb.pdf}
+\providecaptionname{ngerman}{\ppslogostnegb}{logo/de/stnegb.pdf}
+
+
+\providecaptionname{english}{\ppsname}{\textbf{pirate}party}
+\providecaptionname{french}{\ppsname}{parti\textbf{pirate}}
+\providecaptionname{italian}{\ppsname}{partito\textbf{pirata}}
+\providecaptionname{ngerman}{\ppsname}{\textbf{piraten}partei}
+
+\providecaptionname{english}{\ppsnamelong}{Pirate Party Switzerland}
+\providecaptionname{french}{\ppsnamelong}{Parti Pirate Suisse}
+\providecaptionname{italian}{\ppsnamelong}{Partito Pirata Svizzero}
+\providecaptionname{ngerman}{\ppsnamelong}{Piratenpartei Schweiz}
+
+\providecaptionname{english}{\ppsdomain}{www.pirateparty.ch}
+\providecaptionname{french}{\ppsdomain}{www.partipirate.ch}
+\providecaptionname{italian}{\ppsdomain}{www.partitopirata.ch}
+\providecaptionname{ngerman}{\ppsdomain}{www.piratenpartei.ch}

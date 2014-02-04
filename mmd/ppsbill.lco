@@ -1,0 +1,21 @@
+% !TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesFile{ppsbill.lco}[2011/11/16 v1.0 (Christian 'Corvus' Häusler)]
+\LoadLetterOption{ppsletter}
+
+\RequirePackage{esr}
+\RequirePackage[bottom=106mm]{geometry}
+
+\renewenvironment{@beginletterhook}{
+	\esrEinbezahltVon{\usekomavar{toname}\\\usekomavar{toaddress}}
+}
+
+%-------------------------------------------------------
+% Fusszeile
+\firstfoot{\esrPrint}
+
+\endinput

@@ -1,0 +1,76 @@
+%!TEX TS-program = XeLaTex
+%!TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\documentclass{scrartcl}
+% -------------------------------------------
+% Use the line below instead of the above if 
+% you like an orange title page
+% -------------------------------------------
+%\documentclass[titlepage]{scrartcl}
+
+\usepackage{ppsdocument}
+
+% -------------------------------------------
+% Uncomment one of the following lines for a section
+% specific document
+% -------------------------------------------
+%\usepackage{ppsag} % Aargau
+%\usepackage{ppsbb} % Beide Basel
+%\usepackage{ppsbe} % Bern / Berne
+%\usepackage{ppsfr} % Freiburg / Fribourg
+%\usepackage{ppsos} % Ostschweiz: St. Gallen und beide Appenzell
+%\usepackage{ppsvd} % Vaudoise
+%\usepackage{ppsvs} % valaisan / wallis
+%\usepackage{ppszh} % Zürich
+%\usepackage{ppszs} % Zentralschweiz
+
+\author{Lipsum}
+\title{Lorem ipsum dolor sit amet}
+
+% -------------------------------------------
+% Activate to display a given date or no date
+% -------------------------------------------
+% \date{}
+
+\usepackage{lipsum}
+
+\begin{document}
+% -------------------------------------------
+% Set the language will also change the logo
+% Possible options are:
+% 	english
+% 	french
+% 	italian
+% 	ngerman
+% -------------------------------------------
+\selectlanguage{ngerman}
+
+\maketitle
+
+\begin{abstract}
+\lipsum[23]
+\end{abstract}
+
+\newpage
+
+\section{Fusce mauris}
+\lipsum[6]
+\lipsum[7]
+
+\subsection{Nam dui ligula}
+\lipsum[56]
+\lipsum[57]
+\lipsum[58]
+
+\subsubsection{Suspendisse vel felis}
+\lipsum[12]
+\lipsum[13]
+
+\section{Nulla in ipsum}
+\lipsum[14]
+
+\end{document}

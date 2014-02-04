@@ -1,0 +1,241 @@
+% !TEX TS-program = XeLaTeX
+%!TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler based on the work from Thomas Bruderer
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+% -------------------------------------------
+% Use the following options to customize
+% -------------------------------------------
+% aspectratio
+%	1610	≙	16:10
+%	169	≙	16:9
+%	149	≙	14:9
+%	54	≙	5:4
+%	43	≙	4.3
+%	32	≙	3:2
+%
+% [bigger, smaller] use either to change the
+% size or non of them for the default
+\documentclass[aspectratio=1610, compress, bigger]{beamer}
+% -------------------------------------------
+% Use the following three lines instead of the above 
+% to create a handout
+% -------------------------------------------
+%\documentclass{scrartcl}
+%\usepackage{ppsdocument}
+%\usepackage[noxcolor, hyperref]{beamerarticle}
+
+% -------------------------------------------
+% Load the pps beamer theme
+% Possible options are:
+%	miniframes (use the outer theme miniframes)
+%	structured (use the outer theme sidebar)
+%		right (display the sidebar on the right side)
+%		left (display the sidebar on the left side: default)
+%		width=<dimension> (width of the sidebar)
+%		heifht=<dimension> (height of the frame title)
+% -------------------------------------------
+\usetheme{pps}
+ 
+% -------------------------------------------
+% Uncomment one of the following lines for a section
+% specific document
+% -------------------------------------------
+%\usepackage{ppsag} % Aargau
+%\usepackage{ppsbb} % Beide Basel
+%\usepackage{ppsbe} % Bern / Berne
+%\usepackage{ppsfr} % Freiburg / Fribourg
+%\usepackage{ppsos} % Ostschweiz: St. Gallen und beide Appenzell
+%\usepackage{ppsvd} % Vaudoise
+%\usepackage{ppsvs} % valaisan / wallis
+%\usepackage{ppszh} % Zürich
+%\usepackage{ppszs} % Zentralschweiz
+
+% Do not show the navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+% -------------------------------------------
+% Change from here
+% -------------------------------------------
+\title[Short Title]{Title in full length}
+%\subtitle<presentation>[Short subtitle]{Subtitle in full length}
+\subtitle{Subtitle in full length}
+\author[Short Name]{Author Name in full length}
+\date[\today]{\today}
+\subject{The subject is inserted in the meta data of the pdf and helps search engines to find the document}
+\keywords{Keywords are inserted in the meta data of the pdf and helps search engines to find the document}
+
+\begin{document}
+% -------------------------------------------
+% Set the language will also change the logo
+% Possible options are:
+% 	english
+% 	french
+% 	italian
+% 	ngerman
+% -------------------------------------------
+\selectlanguage{ngerman}
+
+% -------------------------------------------
+% Change background color
+% ------------------------------------------
+% The following commands can be used to
+% change the background color for the slides
+%
+% \backgrounddefault
+% \backgroundorange
+% \backgroundviolet
+% \backgroundgrey
+% -------------------------------------------
+
+\frame[plain]{\maketitle}
+
+%\section<presentation>{This section exists only in the presentation modes}
+%\section<article>{This section exists only in the article mode}
+%\section[Summary]{Summary of Main Results}
+%\hyperlink{somewhere}{\beamerbutton{Go somewhere}}
+
+% Toc only shown in the handout
+\frame<article>[plain]{\tableofcontents\newpage}
+
+\part[Part 1]{Full title of Part 1}
+
+\frame[plain]{\partpage}
+
+% Toc for part 1 only shown in presentation
+\frame<presentation>[plain]{\frametitle{Inhaltsverzeichnis}\tableofcontents}
+
+\section{Abschnitt Nr.1} 
+\begin{frame}\frametitle{Titel} 
+	Die einzelnen Frames sollte einen Titel haben 
+\end{frame}
+
+\subsection{Unterabschnitt Nr.1.1  }
+\begin{frame}\frametitle{Testtitel}
+Denn ohne Titel fehlt ihnen was
+\end{frame}
+
+\section{Abschnitt Nr.2} 
+\subsection{Listen I}
+\begin{frame}\frametitle{Aufz\"ahlung}
+\begin{itemize}
+\item Einf\"uhrungskurs in \LaTeX  
+\item Kurs 2  
+\item Seminararbeiten und Pr\"asentationen mit \LaTeX 
+\item Die Beamerclass 
+\end{itemize} 
+\end{frame}
+
+\begin{frame}\frametitle{Aufz\"ahlung mit Pausen}
+\begin{itemize}
+\item  Einf\"uhrungskurs in \LaTeX \pause 
+\item  Kurs 2 \pause 
+\item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
+\item  Die Beamerclass
+\end{itemize} 
+\end{frame}
+
+\backgroundviolet
+
+\subsection{Listen II}
+\begin{frame}\frametitle{Numerierte Liste}
+\begin{enumerate}
+\item  Einf\"uhrungskurs in \LaTeX 
+\item  Kurs 2
+\item  Seminararbeiten und Pr\"asentationen mit \LaTeX 
+\item  Die Beamerclass
+\end{enumerate}
+\end{frame}
+\begin{frame}\frametitle{Numerierte Liste mit Pausen}
+\begin{enumerate}
+\item  Einf\"uhrungskurs in \LaTeX \pause 
+\item  Kurs 2 \pause 
+\item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
+\item  Die Beamerclass
+\end{enumerate}
+\end{frame}
+
+\section{Abschnitt Nr.3} 
+\subsection{Tabellen}
+\begin{frame}
+\frametitle{Tabellen}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Zeitpunkt} & \textbf{Kursleiter} & \textbf{Titel} \\
+\hline
+WS 04/05 & Sascha Frank &  Erste Schritte mit \LaTeX  \\
+\hline
+SS 05 & Sascha Frank & \LaTeX \ Kursreihe \\
+\hline
+\end{tabular}
+\end{frame}
+
+\backgroundgrey
+
+\begin{frame}
+\frametitle{Tabellen mit Pause}
+\begin{tabular}{c c c}
+A & B & C \\ 
+\pause 
+1 & 2 & 3 \\  
+\pause 
+A & B & C \\ 
+\end{tabular} 
+\end{frame}
+
+\backgrounddefault
+
+\part[Part 2]{Full title of Part 2}
+
+\frame[plain]{\partpage}
+
+\section{Abschnitt Nr.4}
+\subsection{Bl\"ocke}
+\begin{frame}\frametitle{Bl\"ocke}
+
+\begin{block}{Blocktitel}
+Blocktext 
+\end{block}
+
+\begin{exampleblock}{Blocktitel}
+Blocktext 
+\end{exampleblock}
+
+
+\begin{alertblock}{Blocktitel}
+Blocktext 
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+   \frametitle{A Theorem on Infinite Sets}
+   \begin{theorem}<1->
+     There exists an infinite set.
+   \end{theorem}
+   \begin{proof}<2->
+     This follows from the axiom of infinity.
+\end{proof}
+   \begin{example}<3->[Natural Numbers]
+     The set of natural numbers is infinite.
+   \end{example}
+ \end{frame}
+
+% Nothing after this line will show up in the toc
+\appendix
+
+\section[Quellen]{Referezen}
+\begin{frame}\frametitle{Quellen \& Literatur}
+
+\begin{thebibliography}{Beamerdokumentation}
+\bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\ 
+\text{http://latex-beamer.sourceforge.net/}
+\bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer} 
+\bibitem[Dante]{dante} \emph{DANTE e.V.} \text{http://www.dante.de}   
+\end{thebibliography}
+
+
+\end{frame}
+
+\end{document}

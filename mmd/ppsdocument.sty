@@ -1,0 +1,159 @@
+% !TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesPackage{ppsdocument}[2013/01/06 v1.0 (Christian 'Corvus' Häusler, Stefan 'Exception' Thöni)]
+\RequirePackage{xifthen}
+\RequirePackage{ppsbasic}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+\setkomafont{pagefoot}{\upshape}
+\setkomafont{pagehead}{\upshape}
+\setkomafont{sectioning}{\bfseries}
+
+\KOMAoptions{fontsize=11pt}
+
+% -----------------------------------
+% Farben für den Gebrauch im Dokument
+% -----------------------------------
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{black}{rgb}{0,0,0}
+
+% -----------------------------------
+% Title für Organ oder Default
+% -----------------------------------
+
+% -----------------------------------
+% default and update values for title
+% -----------------------------------
+\newcommand{\headername}{\ppsname}
+\newcommand{\titlepagespace}{3em}
+\newcommand{\gpklogo}{\includegraphics[width=5cm]{logo/spez/gpklogo.png}}
+
+% -----------------------------------
+% Keine default Klassifizierungstexte
+% -----------------------------------
+\newcommand{\classified}{}
+\newcommand{\classcolor}{black}
+
+% -----------------------------------
+% Grafiken
+% -----------------------------------
+\AddToShipoutPicture{\wellen}
+
+% -----------------------------------
+% Kopf- und fusszeile
+% -----------------------------------
+\RequirePackage[automark]{scrpage2}
+\KOMAoptions{headinclude=true}
+\KOMAoptions{footinclude=false}
+\KOMAoptions{headlines=3}
+\KOMAoptions{pagesize}
+\recalctypearea
+
+\clearscrheadfoot
+\pagestyle{scrheadings}
+
+\setlength{\marginparwidth}{2.1em}
+\setheadwidth[0pt]{textwithmarginpar}
+
+\ihead[\smalllogost]{\smalllogost}
+
+
+\newcommand{\rheaderplain}{
+	\raisebox{0em}{
+		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
+			\scriptsize & \\
+			\textbf{\@title}   & \hfill \pagemark\\
+			\hline
+		\end{tabular}
+	}
+}
+
+\newcommand{\lheaderplain}{
+	\raisebox{0em}{
+		\begin{tabular}[t]{p{\marginparwidth-1em}l}
+			& \scriptsize \\
+			\raisebox{0em}{\pagemark} & \textbf{\@title}   \\
+			\hline
+		\end{tabular}
+	}
+}
+
+\newcommand{\rheadermark}{
+	\raisebox{0em}{
+		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
+			\textbf{\@title} & \\
+			\scriptsize \headmark & \hfill\pagemark\\
+			\hline
+		\end{tabular}
+	}
+}
+
+\newcommand{\lheadermark}{
+	\raisebox{0em}{
+		\begin{tabular}[t]{p{\marginparwidth-1em}l}
+			& \textbf{\@title} \\
+			\raisebox{0em}{\pagemark} & \scriptsize \headmark \\
+			\hline
+		\end{tabular}
+	}
+}
+
+\rohead[\rheaderplain]{\if@chapter\rheadermark\else\rheaderplain\fi}
+\lehead[\lheaderplain]{\if@chapter\lheadermark\else\lheaderplain\fi}
+\ifoot[%
+	\scriptsize \ppsnamelong { }| \@author { }| \@date%
+]{%
+	\scriptsize \ppsnamelong { }| \@author { }| \@date%
+}
+
+\chead{\raisebox{1.8cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
+\cfoot{\raisebox{-2.2cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
+
+\deftripstyle{title}{\headerlogo}{}{}{}{}{}
+
+
+\renewenvironment{titlepage}{
+	\ClearShipoutPicture
+	\AddToShipoutPicture*{
+		\begin{tikzpicture}
+			\draw (0,0) -- (0,0);
+			\draw [color=orange, fill=orange](\ta@bcor+1cm,1cm) rectangle (\paperwidth-1cm,\paperheight-1cm);
+		\end{tikzpicture}}
+}{
+	\begin{flushright}
+		\vfill\biglogonego
+	\end{flushright}
+	\thispagestyle{empty}
+	\newpage
+	\AddToShipoutPicture{\wellen}
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{title}
+	\if@titlepage\vspace*{\tpagemargin}\else\fi
+	\begin{flushright}
+	{\Huge\headername\par\large\@title}
+	\ifthenelse{\equal{\classified}{}}{}{
+		\\ \Large{\textcolor{\classcolor}{\classified}}
+	}
+	\par
+	\vspace{\titlepagespace}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
+	\end{flushright}
+	\vspace{2em}
+}
+
+\newcommand{\backgrounddefault}{}
+
+\newcommand{\backgroundorange}{}
+
+\newcommand{\backgroundgrey}{}
+
+\newcommand{\backgroundviolet}{}
+
+\backgrounddefault
