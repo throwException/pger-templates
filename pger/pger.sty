@@ -34,9 +34,18 @@
 \newcommand{\name}[3]
 {
 \ifanon
-	\expandafter\newcommand\csname anon#1\endcsname{#3.\_\_\_\_\_ }
+	\expandafter\newcommand\csname anon#1\endcsname{#3.\_\_\_\_\_}
 \else
-	\expandafter\newcommand\csname anon#1\endcsname{#2 }
+	\expandafter\newcommand\csname anon#1\endcsname{#2}
+\fi
+}
+
+\newcommand{\fact}[2]
+{
+\ifanon
+	\expandafter\newcommand\csname anon#1\endcsname{\_\_\_\_\_}
+\else
+	\expandafter\newcommand\csname anon#1\endcsname{#2}
 \fi
 }
 
