@@ -60,3 +60,19 @@
 %\providecaptionname{french}{\ppslogostnegb}{logo/fr/stnegb.pdf}
 %\providecaptionname{italian}{\ppslogostnegb}{logo/it/stnegb.pdf}
 %\providecaptionname{ngerman}{\ppslogostnegb}{logo/de/stnegb.pdf}
+
+\newcommand{\decision}[4]{%
+\begin{tabular}{ p{5cm} p{10cm} }
+\multicolumn{2}{ p{\textwidth} }{#1} \\
+Ja & #2 \\
+Nein & #3 \\
+Enthaltung & #4 \\
+\end{tabular}}
+
+\newcommand{\statement}[2]{\emph{#1}: #2 \vspace{0.2cm} \\ }
+
+\newcommand{\sth}[1]{\statement{Stefan Thöni}{#1}}
+\newcommand{\fma}[1]{\statement{Florian Mauchle}{#1}}
+\newcommand{\san}[1]{\statement{Sabrina Andali}{#1}}
+\newcommand{\rsi}[1]{\statement{Renato Sigg}{#1}}
+\newcommand{\mfs}[1]{\statement{Marc Schäfer}{#1}}
