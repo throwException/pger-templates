@@ -8,6 +8,7 @@
 \RequirePackage{tabto}
 \RequirePackage{needspace}
 \RequirePackage{xparse}
+\RequirePackage{quoteswisslaw}
 
 \widowpenalty=300
 \clubpenalty=300
@@ -114,44 +115,3 @@
 
 \newcommand{\titlespace}{0.5cm}
 \newcommand{\summonspace}{0cm}
-
-\newcommand{\articlelanguage}{de}
-\newcommand{\wordart}{Art.}
-\newcommand{\wordabs}{Abs.}
-\newcommand{\wordlit}{lit.}
-\newcommand{\wordziff}{Ziff.}
-\newcommand{\lawemrk}{EMRK}
-\newcommand{\lawbv}{BV}
-\newcommand{\lawzgb}{ZGB}
-\newcommand{\lawzpo}{ZPO}
-\newcommand{\lawstgb}{StGB}
-\newcommand{\lawstpo}{StPO}
-\newcommand{\lawstpps}{StPPS}
-\newcommand{\lawfio}{FIO}
-\newcommand{\lawpgo}{PGO}
-\newcommand{\lawuao}{UAO}
-\newcommand{\lawvo}{VO}
-\newcommand{\lawstppsnumber}{2505}
-\newcommand{\lawfionumber}{2293}
-\newcommand{\lawpgonumber}{2444}
-\newcommand{\lawuaonumber}{2445}
-\newcommand{\lawvonumber}{2446}
-
-\DeclareDocumentCommand{\lawpps}{ m m m O{} O{} }{%
-\href{http://projects.piratenpartei.ch/dmsf_files/#1?download=}{\wordart~#3~\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}#2}}
-
-\DeclareDocumentCommand{\lawabs}{ m m m O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\wordart~#3~\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}#2}}
-
-\DeclareDocumentCommand{\lawziff}{ m m m O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\wordart~#3~\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}#2}}
-
-\DeclareDocumentCommand{\zgb}{ m O{} O{} O{} }{\lawabs{19070042}{\lawzgb}{#1}[#2][#3][#4]}
-\DeclareDocumentCommand{\zpo}{ m O{} O{} O{} }{\lawabs{20061121}{\lawzpo}{#1}[#2][#3][#4]}
-\DeclareDocumentCommand{\stgb}{ m O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgb}{#1}[#2][#3][#4][#5]}
-\DeclareDocumentCommand{\stpo}{ m O{} O{} O{} }{\lawabs{20052319}{\lawstpo}{#1}[#2][#3][#4]}
-\DeclareDocumentCommand{\stpps}{ m O{} O{} }{\lawpps{\lawstppsnumber}{\lawstpps}{#1}[#2][#3]}
-\DeclareDocumentCommand{\uao}{ m O{} O{} }{\lawpps{\lawuaonumber}{\lawuao}{#1}[#2][#3]}
-\DeclareDocumentCommand{\pgo}{ m O{} O{} }{\lawpps{\lawpgonumber}{\lawpgo}{#1}[#2][#3]}
-\DeclareDocumentCommand{\vo}{ m O{} O{} }{\lawpps{\lawvonumber}{\lawvo}{#1}[#2][#3]}
-\DeclareDocumentCommand{\fio}{ m O{} O{} }{\lawpps{\lawfionumber}{\lawfio}{#1}[#2][#3]}

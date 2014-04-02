@@ -1,0 +1,43 @@
+\ProvidesPackage{quoteswisslaw}[2014/04/02 v1.0 (Stefan Thöni)]
+
+\RequirePackage{hyperref}
+\RequirePackage{xparse}
+
+\newcommand{\articlelanguage}{de}
+\newcommand{\wordart}{Art.}
+\newcommand{\wordabs}{Abs.}
+\newcommand{\wordlit}{lit.}
+\newcommand{\wordziff}{Ziff.}
+\newcommand{\lawemrk}{EMRK}
+\newcommand{\lawbv}{BV}
+\newcommand{\lawzgb}{ZGB}
+\newcommand{\lawzpo}{ZPO}
+\newcommand{\lawstgb}{StGB}
+\newcommand{\lawstpo}{StPO}
+
+\newcommand{\setswisslawfrench}{%
+\renewcommand{\articlelanguage}{fr}
+\renewcommand{\wordart}{art.}
+\renewcommand{\wordabs}{al.}
+\renewcommand{\wordlit}{lit.}
+\renewcommand{\wordziff}{ch.}
+\renewcommand{\lawemrk}{CEDH}
+\renewcommand{\lawbv}{Cst}
+\renewcommand{\lawzgb}{CC}
+\renewcommand{\lawzpo}{CPC}
+\renewcommand{\lawstgb}{CP}
+\renewcommand{\lawstpo}{CPP}}
+
+\DeclareDocumentCommand{\lawabs}{ m m O{} O{} O{} O{} }{%
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}#2} }
+
+\DeclareDocumentCommand{\lawziff}{ m m O{} O{} O{} O{} O{} }{%
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}#2} }
+
+\DeclareDocumentCommand{\emrk}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrk}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bv}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbv}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} }{\lawabs{20061121}{\lawzpo}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\stgb}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgb}[#1][#2][#3][#4][#5]}
+\DeclareDocumentCommand{\stpo}{ O{} O{} O{} O{} }{\lawabs{20052319}{\lawstpo}[#1][#2][#3][#4]}
