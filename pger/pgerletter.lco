@@ -1,0 +1,72 @@
+% !TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler based on the work from Pascal Vizeli
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesFile{pgerletter.lco}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
+
+\RequirePackage{pgerbasic}
+\RequirePackage{multirow}
+
+\LoadLetterOption{SN}
+\KOMAoptions{foldmarks=true}
+\KOMAoptions{foldmarks=blmTp}
+
+%-------------------------------------------------------
+% New-Var
+\newkomavar{departement}
+\newkomavar{fromcity}
+
+\setkomavar{date}{\today}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+\ifxetex
+	\setkomafont{subject}{\bfseries}
+\else
+	% nothing
+\fi
+
+\KOMAoptions{fontsize=11pt}
+
+\DeclareFixedFont{\headtext}{\encodingdefault}{\familydefault}{\seriesdefault}{\shapedefault}{8pt}
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+
+\setkomavar{fromurl}{\ppsdomain}
+\setkomavar{fromlogo}{\includegraphics[width=5.5cm]{\pgerlogo}}
+
+%-------------------------------------------------------
+% Positionnen
+\@setplength{lochpos}{-2.5cm}
+\@setplength{locvpos}{6.3cm}
+
+
+%-------------------------------------------------------
+% Location
+\setkomavar{location}{}
+
+%-------------------------------------------------------
+% Kopfzeile
+\firsthead{\headtext
+	\begin{tabular}{p{6.5cm}p{6cm}p{6cm}}
+		&  & \\ 
+		\multirow{5}{*}[0.5cm]{\usekomavar{fromlogo}} & & \\  
+		& \usekomavar{fromname} & \\
+		& \usekomavar{departement} & \usekomavar{fromemail} \\
+		& \usekomavar{fromcity} & \usekomavar{fromurl} \\
+	\end{tabular}
+}
+
+
+%-------------------------------------------------------
+% Fusszeile
+%\firstfoot{%
+%
+%
+%}
+\endinput

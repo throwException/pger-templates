@@ -1,0 +1,123 @@
+%!TEX encoding = UTF-8 Unicode%-------------------------------------------------------
+% Author: Christian Häusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+
+\ProvidesPackage{pgerbasic}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
+
+\RequirePackage{calc}
+\RequirePackage{scrbase}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+
+\RequirePackage[parfill]{parskip}
+\RequirePackage{ifxetex}
+
+\ifxetex
+	\RequirePackage{fontspec}
+	\RequirePackage{xltxtra}
+	\RequirePackage{xunicode}
+	
+	\setromanfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	\setsansfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+\else
+	\RequirePackage[utf8]{inputenc}
+	\RequirePackage[T1]{fontenc}
+\fi
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% -----------------------------------
+% Farben
+% -----------------------------------
+\RequirePackage{xcolor}
+
+\definecolor{shadetop}{cmyk}{0,0.25,1,0}
+\definecolor{shadebottom}{cmyk}{0,0.55,1,0}
+
+\definecolor{weiss}{cmyk}{0,0,0,0}
+\definecolor{gelb}{cmyk}{0,0.1,1,0}
+\definecolor{orange}{cmyk}{0,0.35,1,0}
+\definecolor{hellrot}{cmyk}{0,0.75,1,0}
+\definecolor{dunkelrot}{cmyk}{0.15,1,0.6,0}
+\definecolor{schwarz}{cmyk}{1,1,1,1}
+\definecolor{violet}{cmyk}{0.65,0.75,0,0.35}
+\definecolor{hellviolet}{RGB}{197,159,242}
+\definecolor{blau}{cmyk}{0.8,0.5,0,0}
+\definecolor{grau}{cmyk}{0,0,0,0.28}
+
+% -----------------------------------
+% Grafiken
+% -----------------------------------
+\RequirePackage{graphicx}
+\RequirePackage{eso-pic}
+
+\newlength{\tlogowidth}
+\newlength{\hlogoheight}
+\newlength{\hlogospace}
+\newlength{\tpagemargin}
+\newlength{\abstractwidth}
+\AtBeginDocument{
+	\setlength{\hlogoheight}{\headheight/3*2}
+	\setlength{\hlogospace}{\hlogoheight/2}
+	\setlength{\tlogowidth}{\linewidth/2}
+	\setlength{\tpagemargin}{\textheight/10}
+	\setlength{\abstractwidth}{\linewidth/10*8}
+}
+
+\newcommand{\smalllogo}{%
+	\includegraphics[height=\hlogoheight]{\pgerlogo}%
+}
+
+\newcommand{\largelogo}{%
+	\includegraphics[height=\hlogoheight*2]{\pgerlogo}%
+}
+
+\newcommand{\headerlogo}{%
+	\smalllogo%
+	\vspace{\hlogospace}%
+}
+
+\newcommand{\titlelogo}{%
+	\largelogo%
+	\vspace{\hlogospace}%
+}
+
+\newcommand{\wellen}{%
+	\put(0,0){\includegraphics[width=\paperwidth]{logo/spez/greywave.pdf}%
+}}
+
+% -----------------------------------
+% Tikz Styles
+% -----------------------------------
+\RequirePackage{tikz}
+
+\tikzset{help lines/.style={color=violet!30, very thin}}
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+\RequirePackage[english,french,ngerman]{babel}
+
+\providecaptionname{english}{\pgerlogo}{logo-with-name.pdf}
+\providecaptionname{french}{\pgerlogo}{logo-with-name.pdf}
+\providecaptionname{ngerman}{\pgerlogo}{logo-with-name.pdf}
+
+\providecaptionname{english}{\ppsname}{\textbf{pirate}tribunal}
+\providecaptionname{french}{\ppsname}{tribunal\textbf{pirate}}
+\providecaptionname{ngerman}{\ppsname}{\textbf{piraten}gericht}
+
+\providecaptionname{english}{\ppsnamelong}{Pirate Tribunal}
+\providecaptionname{french}{\ppsnamelong}{Tribunal Pirate}
+\providecaptionname{ngerman}{\ppsnamelong}{Piratengericht}
+
+\providecaptionname{english}{\ppsdomain}{piratetribunal.ch}
+\providecaptionname{french}{\ppsdomain}{tribunalpirate.ch}
+\providecaptionname{ngerman}{\ppsdomain}{piratengericht.ch}

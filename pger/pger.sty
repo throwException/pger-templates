@@ -1,6 +1,6 @@
 \ProvidesPackage{pger}[2013/11/19 v1.0 (Stefan Thöni)]
 
-\RequirePackage{ppsdocument}
+\RequirePackage{pgerdocument}
 \RequirePackage{hyperref}
 \RequirePackage{enumerate}
 \RequirePackage[titles]{tocloft}
@@ -13,6 +13,7 @@
 \widowpenalty=300
 \clubpenalty=300
 
+\newcommand{\division}[1]{\def\@division{#1}}
 \newcommand{\casenumber}[1]{\def\@casenumber{#1}}
 \newcommand{\ruling}[1]{\def\@ruling{#1}}
 \newcommand{\rulinglarge}[1]{\def\@rulinglarge{#1}}
@@ -67,9 +68,9 @@
 {\let\par\svpar\parindent 0in}
 
 \newcounter{xn}
-\newcounter{xnn}
-\newcounter{xnnn}
-\newcounter{xnnnn}
+\newcounter{xnn}[xn]
+\newcounter{xnnn}[xnn]
+\newcounter{xnnnn}[xnnn]
 
 \newcommand{\N}[2]{%
 	\vspace{0.2cm}
@@ -114,4 +115,4 @@
 }
 
 \newcommand{\titlespace}{0.5cm}
-\newcommand{\summonspace}{0cm}
+\newcommand{\summonspace}{0.2cm}

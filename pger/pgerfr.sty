@@ -12,7 +12,7 @@
 \SetWatermarkLightness{0.8}
 \SetWatermarkScale{0.9}}
 
-\author{Tribunal Pirate}
+\author{\@division~Section}
 
 \newcommand{\judgement}{
 	\ruling{jugement}
@@ -110,13 +110,13 @@
 	\date{\@casenumber}
 	\title{\@rulinglarge ~du~\@decisiondate}
 	\enlargethispage{5cm}
-	\vspace{\titlespace} ~ \\
 	
-	\hfill{\Huge tribunal\textbf{pirate}} \\
-	\vspace{\titlespace} \\
-	
-	{ \footnotesize \line(1,0){100} \\
+	{ \footnotesize 
+	~ \\
+	\line(1,0){100} \\
+	\@division~Section \newline 
 	Numéro de dossier \@casenumber} \\
+	\vspace{\titlespace} \\
 	\vspace{\titlespace} \\
 	\begin{tabular}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
@@ -140,13 +140,13 @@
 	\date{\@casenumber}
 	\title{\@rulinglarge ~du~\@decisiondate}
 	\enlargethispage{5cm}
-	\vspace{\summonspace} ~ \\
 	
-	\hfill{\Huge tribunal\textbf{pirate}} \\
-	\vspace{\summonspace} \\
-	
-	{ \footnotesize \line(1,0){100} \\
+	{ \footnotesize 
+	~ \\
+	\line(1,0){100} \\
+	\@division~Section \newline 
 	Numéro de dossier \@casenumber} \\
+	\vspace{\summonspace} \\
 	\vspace{\summonspace} \\
 	\begin{tabular}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
@@ -172,17 +172,6 @@
 	Implication de retard & \@delayresult \\
 	\end{tabular}
 }
-
-\renewcommand{\lawstpps}{StPPS}
-\renewcommand{\lawfio}{RFI}
-\renewcommand{\lawpgo}{RTP}
-\renewcommand{\lawuao}{RVG}
-\renewcommand{\lawvo}{RA}
-\renewcommand{\lawstppsnumber}{2744}
-\renewcommand{\lawfionumber}{2746}
-\renewcommand{\lawpgonumber}{2752}
-\renewcommand{\lawuaonumber}{2751}
-\renewcommand{\lawvonumber}{2745}
 
 \newcommand{\signature}[1]
 {
