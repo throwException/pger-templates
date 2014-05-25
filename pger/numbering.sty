@@ -1,0 +1,68 @@
+\ProvidesPackage{numbering}
+\RequirePackage{tabto}
+\RequirePackage{array}
+\RequirePackage{supertabular}
+
+\newenvironment{numbering}{%
+    \begin{list}{}{%
+        \setlength{\topsep}{0pt}%
+        \setlength{\leftmargin}{2cm}%
+        \setlength{\rightmargin}{0cm}%
+        \setlength{\listparindent}{\parindent}%
+        \setlength{\itemindent}{\parindent}%
+        \setlength{\parsep}{\parskip}%
+    }%
+    \item[]
+}{%
+    \end{list}
+}
+
+\newcounter{xn}
+\newcounter{xnn}[xn]
+\newcounter{xnnn}[xnn]
+\newcounter{xnnnn}[xnnn]
+
+\newcommand{\N}[1]{%
+    \vspace{0.2cm}
+    \refstepcounter{xn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.}}\textbf{#1}
+}
+
+\newcommand{\NN}[1]{%
+    \vspace{0.2cm}
+    \refstepcounter{xnn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.\arabic{xnn}.}}\textbf{#1}
+}
+
+\newcommand{\NNN}[1]{%
+    \vspace{0.2cm}
+    \refstepcounter{xnnn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}\textbf{#1}
+}
+
+\newcommand{\n}[1]{%
+    \refstepcounter{xn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.}}#1
+}
+
+\newcommand{\nn}[1]{%
+    \refstepcounter{xnn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.\arabic{xnn}.}}#1
+}
+
+\newcommand{\nnn}[1]{%
+    \refstepcounter{xnnn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}#1
+}
+
+\newcommand{\nnnn}[1]{%
+    \refstepcounter{xnnnn}
+    \hspace{-2cm}\makebox[2cm][l]{%
+    \textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.\arabic{xnnnn}.}}#1
+}

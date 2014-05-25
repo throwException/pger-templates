@@ -1,43 +1,109 @@
 \ProvidesPackage{quoteswisslaw}[2014/04/02 v1.0 (Stefan Thöni)]
-
 \RequirePackage{hyperref}
+\RequirePackage{ifthen}
 \RequirePackage{xparse}
+\RequirePackage{scrbase}
 
-\newcommand{\articlelanguage}{de}
-\newcommand{\wordart}{Art.}
-\newcommand{\wordabs}{Abs.}
-\newcommand{\wordlit}{lit.}
-\newcommand{\wordziff}{Ziff.}
-\newcommand{\lawemrk}{EMRK}
-\newcommand{\lawbv}{BV}
-\newcommand{\lawzgb}{ZGB}
-\newcommand{\lawzpo}{ZPO}
-\newcommand{\lawstgb}{StGB}
-\newcommand{\lawstpo}{StPO}
+\providecaptionname{ngerman}{\articlelanguage}{de}
+\providecaptionname{ngerman}{\wordart}{Art.}
+\providecaptionname{ngerman}{\wordabs}{Abs.}
+\providecaptionname{ngerman}{\wordlit}{lit.}
+\providecaptionname{ngerman}{\wordziff}{Ziff.}
+\providecaptionname{ngerman}{\lawemrk}{EMRK}
+\providecaptionname{ngerman}{\lawemrkfull}{der Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
+\providecaptionname{ngerman}{\lawemrksingle}{Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
+\providecaptionname{ngerman}{\lawpakt}{UNO-Pakt II}
+\providecaptionname{ngerman}{\lawpaktfull}{des Internationalen Paktes über bürgerliche und politische Rechte (UNO-Pakt II)}
+\providecaptionname{ngerman}{\lawpaktfull}{Internationale Pakt über bürgerliche und politische Rechte (UNO-Pakt II)}
+\providecaptionname{ngerman}{\lawbv}{BV}
+\providecaptionname{ngerman}{\lawbvfull}{der Bundesverfassung der Schweizerischen Eidgenossenschaft (BV)}
+\providecaptionname{ngerman}{\lawbvsingle}{Bundesverfassung der Schweizerischen Eidgenossenschaft (BV)}
+\providecaptionname{ngerman}{\lawzgb}{ZGB}
+\providecaptionname{ngerman}{\lawzgbfull}{des Schweizerischen Zivilgesetzbuches (ZGB)}
+\providecaptionname{ngerman}{\lawzgbsingle}{Schweizerisches Zivilgesetzbuches (ZGB)}
+\providecaptionname{ngerman}{\lawor}{OR}
+\providecaptionname{ngerman}{\laworfull}{des Schweizerischen Obligationenrechtes (OR)}
+\providecaptionname{ngerman}{\laworsingle}{Schweizerisches Obligationenrechtes (OR)}
+\providecaptionname{ngerman}{\lawzpo}{ZPO}
+\providecaptionname{ngerman}{\lawzpofull}{der Schweizerischen Zivilprozessordnung (ZPO)}
+\providecaptionname{ngerman}{\lawzposingle}{Schweizerische Zivilprozessordnung (ZPO)}
+\providecaptionname{ngerman}{\lawstgb}{StGB}
+\providecaptionname{ngerman}{\lawstgbfull}{des Schweizerischen Strafgesetzbuches (StGB)}
+\providecaptionname{ngerman}{\lawstgbsingle}{Schweizerisches Strafgesetzbuches (StGB)}
+\providecaptionname{ngerman}{\lawstpo}{StPO}
+\providecaptionname{ngerman}{\lawstpofull}{der Schweizerischen Strafprozessordnung (StPO)}
+\providecaptionname{ngerman}{\lawstposingle}{Schweizerische Strafprozessordnung (StPO)}
 
-\newcommand{\setswisslawfrench}{%
-\renewcommand{\articlelanguage}{fr}
-\renewcommand{\wordart}{art.}
-\renewcommand{\wordabs}{al.}
-\renewcommand{\wordlit}{lit.}
-\renewcommand{\wordziff}{ch.}
-\renewcommand{\lawemrk}{CEDH}
-\renewcommand{\lawbv}{Cst}
-\renewcommand{\lawzgb}{CC}
-\renewcommand{\lawzpo}{CPC}
-\renewcommand{\lawstgb}{CP}
-\renewcommand{\lawstpo}{CPP}}
+\providecaptionname{french}{\articlelanguage}{fr}
+\providecaptionname{french}{\wordart}{art.}
+\providecaptionname{french}{\wordabs}{al.}
+\providecaptionname{french}{\wordlit}{lit.}
+\providecaptionname{french}{\wordziff}{ch.}
+\providecaptionname{french}{\lawemrk}{CEDH}
+\providecaptionname{french}{\lawemrkfull}{de la convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
+\providecaptionname{french}{\lawemrksingle}{convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
+\providecaptionname{french}{\lawpakt}{Pacte ONU II}
+\providecaptionname{french}{\lawpaktfull}{du pacte international relatif aux droits civils et politiques (Pacte ONU II)}
+\providecaptionname{french}{\lawpaktsingle}{pacte international relatif aux droits civils et politiques (Pacte ONU II)}
+\providecaptionname{french}{\lawbv}{Cst}
+\providecaptionname{french}{\lawbvfull}{de la constitution fédérale de la Confédération suisse (Cst)}
+\providecaptionname{french}{\lawbvsingle}{constitution fédérale de la Confédération suisse (Cst)}
+\providecaptionname{french}{\lawzgb}{CC}
+\providecaptionname{french}{\lawzgbfull}{du code civil suisse (CC)}
+\providecaptionname{french}{\lawzgbsingle}{code civil suisse (CC)}
+\providecaptionname{french}{\lawor}{DO}
+\providecaptionname{french}{\laworfull}{du droit des obligations suisse (CO)}
+\providecaptionname{french}{\laworsingle}{droit des obligations suisse (CO)}
+\providecaptionname{french}{\lawzpo}{CPC}
+\providecaptionname{french}{\lawzpofull}{du code de procédure civile suisse (CPC)}
+\providecaptionname{french}{\lawzposingle}{code de procédure civile suisse (CPC)}
+\providecaptionname{french}{\lawstgb}{CP}
+\providecaptionname{french}{\lawstgbfull}{du code pénal suisse (CP)}
+\providecaptionname{french}{\lawstgbsingle}{code pénal suisse (CP)}
+\providecaptionname{french}{\lawstpo}{CPP}
+\providecaptionname{french}{\lawstpofull}{du code de procédure pénale suisse (CPP)}
+\providecaptionname{french}{\lawstposingle}{code de procédure pénale suisse (CPP)}
 
 \DeclareDocumentCommand{\lawabs}{ m m O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}#2} }
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}#2}}
 
 \DeclareDocumentCommand{\lawziff}{ m m O{} O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}#2} }
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}#2}}
 
 \DeclareDocumentCommand{\emrk}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrk}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\pakt}{ O{} O{} O{} O{} }{\lawziff{19660262}{\lawpakt}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\bv}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbv}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\ore}{ O{} O{} O{} O{} }{\lawabs{19110009}{\lawor}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} }{\lawabs{20061121}{\lawzpo}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\stgb}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgb}[#1][#2][#3][#4][#5]}
 \DeclareDocumentCommand{\stpo}{ O{} O{} O{} O{} }{\lawabs{20052319}{\lawstpo}[#1][#2][#3][#4]}
+
+\DeclareDocumentCommand{\emrkf}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrkfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\paktf}{ O{} O{} O{} O{} }{\lawziff{19660262}{\lawpaktfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bvf}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbvfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\zgbf}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgbfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\orf}{ O{} O{} O{} O{} }{\lawabs{19110009}{\laworfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\zpof}{ O{} O{} O{} O{} }{\lawabs{20061121}{\lawzpofull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\stgbf}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgbfull}[#1][#2][#3][#4][#5]}
+\DeclareDocumentCommand{\stpof}{ O{} O{} O{} O{} }{\lawabs{20052319}{\lawstpofull}[#1][#2][#3][#4]}
+
+
+
+% ===================================
+% Zuger Gesetze
+% ===================================
+
+\DeclareDocumentCommand{\lawzg}{ m m O{} O{} O{} }{%
+\href{http://zg.clex.ch/frontend/versions/#1}{\ifthenelse{\equal{#3}{}}{}{§~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}#2}}
+
+\DeclareDocumentCommand{\kvzg}{ O{} O{} O{} }{\lawzg{1270}{KV/ZG}[#1][#2][#3]}
+\DeclareDocumentCommand{\wagzg}{ O{} O{} O{} }{\lawzg{1286}{WAG}[#1][#2][#3]}
+\DeclareDocumentCommand{\vrgzg}{ O{} O{} O{} }{\lawzg{1314}{VRG}[#1][#2][#3]}
+\DeclareDocumentCommand{\gokrzg}{ O{} O{} O{} }{\lawzg{1310}{GO-KR}[#1][#2][#3]}
+
+\DeclareDocumentCommand{\kvzgf}{ O{} O{} O{} }{\lawzg{1270}{der Verfassung des Kantons Zug (KV/ZG)}[#1][#2][#3]}
+\DeclareDocumentCommand{\wagzgf}{ O{} O{} O{} }{\lawzg{1286}{des Gesetzes über die Wahlen und Abstimmungen (WAG)}[#1][#2][#3]}
+\DeclareDocumentCommand{\vrgzgf}{ O{} O{} O{} }{\lawzg{1314}{des Gesetzes über den Rechtsschutz in Verwaltungssachen (VRG)}[#1][#2][#3]}
+\DeclareDocumentCommand{\gokrzgf}{ O{} O{} O{} }{\lawzg{1310}{der Geschäftsordnung des Kantonsrates (GO KR)}[#1][#2][#3]}
+

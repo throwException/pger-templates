@@ -9,9 +9,11 @@
 \RequirePackage{needspace}
 \RequirePackage{xparse}
 \RequirePackage{quoteswisslaw}
+\RequirePackage{numbering}
 
-\widowpenalty=300
-\clubpenalty=300
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength{\emergencystretch}{5em}
 
 \newcommand{\division}[1]{\def\@division{#1}}
 \newcommand{\casenumber}[1]{\def\@casenumber{#1}}
@@ -28,8 +30,6 @@
 \newcommand{\summondate}[1]{\def\@summondate{#1}}
 \newcommand{\summonplace}[1]{\def\@summonplace{#1}}
 \newcommand{\delayresult}[1]{\def\@delayresult{#1}}
-
-\setlength{\emergencystretch}{3em}
 
 \newif\ifanon
 
@@ -49,69 +49,6 @@
 \else
 	\expandafter\newcommand\csname anon#1\endcsname{#2}
 \fi
-}
-
-\parindent 0cm
-\parskip 0.3cm
-\let\svpar\par
-
-\newenvironment{hang}{\hangindent 2cm\def\par{\svpar\hangindent
-2cm\parindent 2cm}}
-
-\newcommand{\hangcmd}[2]
-{
-	\begin{hang}
-	#1 \tabto{2cm} #2
-	\end{hang}
-}
-
-{\let\par\svpar\parindent 0in}
-
-\newcounter{xn}
-\newcounter{xnn}[xn]
-\newcounter{xnnn}[xnn]
-\newcounter{xnnnn}[xnnn]
-
-\newcommand{\N}[2]{%
-	\vspace{0.2cm}
-	\refstepcounter{xn}%
-	\hangcmd{\textbf{\arabic{xn}.}}{\textbf{#1} \par #2} \needspace{0.5cm}
-}
-
-\newcommand{\NN}[2]{%
-	\vspace{0.2cm}
-	\refstepcounter{xnn}%
-	\hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.}}{\textbf{#1} \par #2} \needspace{0.5cm}
-}
-
-\newcommand{\NNN}[2]{%
-	\vspace{0.2cm}
-	\refstepcounter{xnnn}%
-	\hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}{#1 \par #2} \needspace{0.5cm}
-}
-
-\newcommand{\x}[1]{%
-   \hangcmd{}{#1}
-}
-
-\newcommand{\n}[1]{%
-   \refstepcounter{xn}%
-   \hangcmd{\textbf{\arabic{xn}.}}{#1}
-}
-
-\newcommand{\nn}[1]{%
-   \refstepcounter{xnn}%
-   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.}}{#1}
-}
-
-\newcommand{\nnn}[1]{%
-   \refstepcounter{xnnn}%
-   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.}}{#1}
-}
-
-\newcommand{\nnnn}[1]{%
-   \refstepcounter{xnnnn}%
-   \hangcmd{\textbf{\arabic{xn}.\arabic{xnn}.\arabic{xnnn}.\arabic{xnnnn}.}}{#1}
 }
 
 \newcommand{\titlespace}{0.5cm}
