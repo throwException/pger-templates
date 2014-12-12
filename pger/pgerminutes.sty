@@ -1,0 +1,44 @@
+\ProvidesPackage{pgerminutes}[2014/12/11 (Stefan Thöni)]
+
+\RequirePackage{pgerdocument}
+\RequirePackage{hyperref}
+\RequirePackage{xcolor}
+\RequirePackage{csquotes}
+\RequirePackage[style=1,leftmargin=0pt,rightmargin=0pt]{mdframed}
+
+\newcommand{\vote}[4]{%
+    \begin{displaying}
+    \begin{tabular}{ p{2.5cm} p{9cm}}
+    \multicolumn{2}{l}{#1} \\
+    & \\
+    Ja: & #2 \\
+    Nein: & #3 \\
+    Enthaltung: & #4 \\
+    \end{tabular}
+    \end{displaying}
+}
+
+\newenvironment{displaying}{%
+    \vspace{0.2cm}
+    \begin{list}{}{%
+        \setlength{\topsep}{0pt}%
+        \setlength{\leftmargin}{1cm}%
+        \setlength{\rightmargin}{1cm}%
+        \setlength{\listparindent}{\parindent}%
+        \setlength{\itemindent}{\parindent}%
+        \setlength{\parsep}{\parskip}%
+    }%
+    \item[]
+    \begin{mdframed}[linewidth=0,backgroundcolor=gray!20,linecolor=black,fontcolor=black]
+}{%
+    \end{mdframed}
+    \end{list}
+}
+
+\newcommand{\head}[1]{\vspace{0.2cm} {\Large \textbf{#1}}}
+
+\newcommand{\event}[1]{%
+    \begin{center}
+    \textit{#1}
+    \end{center}
+}
