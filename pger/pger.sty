@@ -10,6 +10,11 @@
 \RequirePackage{xparse}
 \RequirePackage{quoteswisslaw}
 \RequirePackage{numbering}
+\RequirePackage{xifthen}
+\RequirePackage{etoolbox}
+
+\newbool{anonymized}
+\newcommand{\makeanon}{\booltrue{anonymized}}
 
 \widowpenalty=10000
 \clubpenalty=10000
@@ -24,6 +29,7 @@
 \newcommand{\judges}[1]{\def\@judges{#1}}
 \newcommand{\plaintiff}[1]{\def\@plaintiff{#1}}
 \newcommand{\respondent}[1]{\def\@respondent{#1}}
+\newcommand{\actor}[3]{#1 \textbf{#2},\newline #3,\newline}
 \newcommand{\act}[1]{\def\@act{#1}}
 \newcommand{\publicity}[1]{\def\@publicity{#1}}
 \newcommand{\summonperson}[1]{\def\@summonperson{#1}}
@@ -31,25 +37,13 @@
 \newcommand{\summonplace}[1]{\def\@summonplace{#1}}
 \newcommand{\delayresult}[1]{\def\@delayresult{#1}}
 
-\newif\ifanon
-
-\newcommand{\name}[3]
-{
-\ifanon
-	\expandafter\newcommand\csname anon#1\endcsname{#3.\_\_\_\_\_}
-\else
-	\expandafter\newcommand\csname anon#1\endcsname{#2}
-\fi
-}
-
-\newcommand{\fact}[2]
-{
-\ifanon
-	\expandafter\newcommand\csname anon#1\endcsname{\_\_\_\_\_}
-\else
-	\expandafter\newcommand\csname anon#1\endcsname{#2}
-\fi
-}
+\newcommand{\ifequal}[4]{\ifthenelse{\equal{#1}{#2}}{#3}{#4}}
+\newcommand{\mkcmd}[2]{\expandafter\def\csname#1\endcsname{#2}}
+\newcommand{\pseudonym}[3]{\ifbool{anonymized}{\mkcmd{#1}{#3.\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
+\newcommand{\anonym}[2]{\ifbool{anonymized}{\mkcmd{#1}{\_\_\_\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
 
 \newcommand{\titlespace}{0.5cm}
 \newcommand{\summonspace}{0.0cm}
+
+\RequirePackage{pgerjudges}
+

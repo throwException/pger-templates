@@ -2,19 +2,29 @@
 \usepackage{pgerde}
 
 \draft{1}
-\anontrue
-\name{hans}{Hans Muster}{A}
+%\makeanon
+\pseudonym{HM}{Hans Muster}{A}
+\anonym{HMa}{Musterweg 1337a, 9999 Hintertupfingen}
+\pseudonym{NM}{Nina Meyer}{A}
+\anonym{NMa}{Bahnhofstr. 42, 9999 Hintertupfingen}
+\anonym{JAa}{Gemeinweg 1a, 1001 Ostermundigen}
 
 \judgement
 \division{I.}
-\casenumber{AS.2.9}
+\casenumber{1E.23/2018}
 \decisiondate{1. Dezember 2013}
-\judges{Richter Stefan Thöni, Präsident, \newline
-		Richter Sabrina Andali und Florian Mauchle}
-\plaintiff{\textbf{VORSTAND DER PIRATENPARTEI SCHWEIZ}, \newline
-		   handelnd durch Vizepräsident Pascal Gloor}
-\respondent{\textbf{\anonhans}}
-\subject{Parteiausschluss}
+\judges{\APp \newline
+		\FHr \newline
+		\FRr}
+\plaintiff{%
+\actor{}{Piratenpartei Schweiz}{3000 Bern}
+\actor{handelnd durch Vizepräsident}{Jorgo Ananiadis}{\JAa}
+Klägerin,}
+\respondent{%
+\actor{Herr}{\HM}{\HMa}
+\actor{vertreten durch}{\NM}{\NMa}
+Beklagter,}
+\subject{Parteiausschluss.}
 
 \begin{document}
 
@@ -30,7 +40,7 @@
 
 \NN{Vorstand}{\lipsum[12]}
 
-\NN{\anonhans}{\lipsum[13]}
+\NN{\HM}{\lipsum[13]}
 
 \N{Sachverhalt}{}
 
@@ -77,7 +87,7 @@ Die Verfahrenskosten werden dem Vorstand auferlegt.}
 Dieses Urteil wird mitgeteilt:
 
 \begin{enumerate}
-\item \anonhans
+\item \HM
 \item dem Vorstand der Piratenpartei Schweiz
 \end{enumerate}
 

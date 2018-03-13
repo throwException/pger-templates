@@ -10,6 +10,11 @@
 \SetWatermarkLightness{0.8}
 \SetWatermarkScale{0.9}}
 
+\newcommand{\wordJudge}[1]{\ifequal{#1}{f}{juge}{juge}}
+\newcommand{\wordPresident}[1]{\ifequal{#1}{f}{présidente}{président}}
+\newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{membre présidante}{membre présidant}}
+\newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{juge rapporteur}{juge rapporteur}}
+
 \author{\@division~Section}
 
 \newcommand{\judgement}{
@@ -46,60 +51,6 @@
 	\ruling{convocation}
 	\rulinglarge{Convocation}
 	\rulingdefinitarticle{cette}
-}
-
-\newcommand{\dat}[3]
-{
-\ifanon
-  \_\_.\_\_.\_\_\_\_
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\daty}[3]
-{
-\ifanon
-  \_\_.\_\_.#1
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\datm}[3]
-{
-\ifanon
-  \_\_.#2.#1
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\datl}[3]
-{
-\ifanon
-  \_\_~\_\_\_\_\_~\_\_\_\_
-\else
-  #3~#2~#1
-\fi
-}
-
-\newcommand{\datly}[3]
-{
-\ifanon
-  \_\_~\_\_\_\_\_~#1
-\else
-  #3~#2~#1
-\fi
-}
-
-\newcommand{\datlm}[3]
-{
-\ifanon
-  \_\_~#2~#1
-\else
-  #3~#2~#1
-\fi
 }
 
 \renewcommand{\maketitle}{
@@ -181,3 +132,11 @@
 }
 
 \newcommand{\requestdelay}{Les parties peuvent demander un déplacement pour des raisons importantes. La demande doit être deposé au Tribunal Pirate à temps avant la date.}
+
+\newcommand{\singlejudge}{%
+\nn{REPLACE THIS!!!}}
+
+\newcommand{\base}{%
+\nn{REPLACE THIS!!!}}
+
+\newcommand{\appeal}{REPLACE THIS!!!}

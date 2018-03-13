@@ -10,6 +10,11 @@
 \SetWatermarkLightness{0.8}
 \SetWatermarkScale{0.9}}
 
+\newcommand{\wordJudge}[1]{\ifequal{#1}{f}{Richterin}{Richter}}
+\newcommand{\wordPresident}[1]{\ifequal{#1}{f}{Präsidentin}{Präsident}}
+\newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{präsidierendes Mitglied}{präsidierendes Mitglied}}
+\newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{Instruktionsrichterin}{Instruktionsrichter}}
+
 \author{\@division~Abteilung}
 
 \newcommand{\judgement}{
@@ -46,60 +51,6 @@
 	\ruling{Vorladung}
 	\rulinglarge{Vorladung}
 	\rulingdefinitarticle{diese}
-}
-
-\newcommand{\dat}[3]
-{
-\ifanon
-  \_\_.\_\_.\_\_\_\_
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\daty}[3]
-{
-\ifanon
-  \_\_.\_\_.#1
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\datm}[3]
-{
-\ifanon
-  \_\_.#2.#1
-\else
-  #3.#2.#1
-\fi
-}
-
-\newcommand{\datl}[3]
-{
-\ifanon
-  \_\_.~\_\_\_\_\_~\_\_\_\_
-\else
-  #3.~#2~#1
-\fi
-}
-
-\newcommand{\datly}[3]
-{
-\ifanon
-  \_\_.~\_\_\_\_\_~#1
-\else
-  #3.~#2~#1
-\fi
-}
-
-\newcommand{\datlm}[3]
-{
-\ifanon
-  \_\_.~#2~#1
-\else
-  #3.~#2~#1
-\fi
 }
 
 \renewcommand{\maketitle}{

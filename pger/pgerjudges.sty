@@ -2,10 +2,18 @@
 
 \RequirePackage{xspace}
 
-\newcommand{\fma}{\textit{Florian Mauchle}\xspace}
-\newcommand{\sth}{\textit{Stefan Thöni}\xspace}
-\newcommand{\sja}{\textit{Stephan Jau}\xspace}
-\newcommand{\rsi}{\textit{Renato Sigg}\xspace}
-\newcommand{\gab}{\textit{Gabriel Klein}\xspace}
-\newcommand{\msc}{\textit{Marc Schäfer}\xspace}
-\newcommand{\cse}{\textit{Christian Seematter}\xspace}
+\newcommand{\judge}[4]{%
+\mkcmd{#1}{\textit{#2}\xspace}
+\mkcmd{#1r}{\wordJudge{#3} \textit{#2}\xspace}
+\mkcmd{#1p}{\wordJudge{#3} \textit{#2}\xspace, \ifequal{#4}{p}{\wordPresident{#3}}{\wordPresidingMember{#3}}}
+\mkcmd{#1i}{\wordJudge{#3} \textit{#2}\xspace, \wordInstructingJudge{#3}}
+}
+
+% Definition of judges:
+% Initials, Fullname, Gender (m/f), President (p)
+
+\judge{AP}{Anna Barbara Payer}{f}{p}
+\judge{FH}{Falk Hirschel}{m}{}
+\judge{FR}{Fabian Rousseau}{m}{}
+\judge{ME}{Michael Ebner}{m}{}
+
