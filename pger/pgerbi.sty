@@ -1,0 +1,182 @@
+\ProvidesPackage{pgerbi}[2013/11/19 v1.0 (Stefan Thöni)]
+
+\RequirePackage{pger}
+\RequirePackage[babel,german=quotes]{csquotes}
+\RequirePackage[ngerman]{babel}
+
+\newcommand{\draft}[1]{
+\RequirePackage{draftwatermark}
+\SetWatermarkText{Entwurf~/~brouillon #1}
+\SetWatermarkLightness{0.8}
+\SetWatermarkScale{0.5}}
+
+\author{\@division~Abteilung~/~Section}
+
+\newcommand{\judgement}{
+	\rulingde{Urteil}
+	\rulinglargede{Urteil}
+	\rulingdefinitarticlede{dieses}
+	\rulingfr{jugement}
+	\rulinglargefr{Jugement}
+	\rulingdefinitarticlefr{ce}
+}
+
+\newcommand{\decision}{
+	\rulingde{Beschluss}
+	\rulinglargede{Beschluss}
+	\rulingdefinitarticlede{diesen}
+	\rulingfr{arrêt}
+	\rulinglargefr{Arrêt}
+	\rulingdefinitarticlefr{cet}
+}
+
+\newcommand{\order}{
+	\rulingde{Verfügung}
+	\rulinglargede{Verfügung}
+	\rulingdefinitarticlede{diese}
+	\rulingfr{disposition}
+	\rulinglargefr{Disposition}
+	\rulingdefinitarticlefr{cette}
+}
+
+\newcommand{\interimorder}{
+	\rulingde{Zwischenverfügung}
+	\rulinglargede{Zwischenverfügung}
+	\rulingdefinitarticlede{diese}
+	\rulingfr{disposition provisoire}
+	\rulinglargefr{Disposition provisoire}
+	\rulingdefinitarticlefr{cette}
+}
+
+\newcommand{\notification}{
+	\rulingde{Mitteilung}
+	\rulinglargede{Mitteilung}
+	\rulingdefinitarticlede{diese}
+	\rulingfr{message}
+	\rulinglargefr{Message}
+	\rulingdefinitarticlefr{cette}
+}
+
+\newcommand{\summoning}{
+	\rulingde{Vorladung}
+	\rulinglargede{Vorladung}
+	\rulingdefinitarticlede{diese}
+	\rulingfr{convocation}
+	\rulinglargefr{Convocation}
+	\rulingdefinitarticlefr{cette}
+}
+
+\renewcommand{\maketitle}{
+	\selectlanguage{ngerman}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglargede ~vom~/~\@rulinglargefr ~du~\@decisiondate}
+	\enlargethispage{5cm}
+	
+	{ \footnotesize 
+	~ \\
+	\line(1,0){100} \\
+	\@division~Abteilung~/~Section \newline 
+	Geschäftsnummer~/~Numéro~de~dossier \@casenumber} \\
+	\vspace{\titlespace} \\
+	\vspace{\titlespace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglargede ~vom~\@decisiondate}} \\
+	& \Large{\textbf{\@rulinglargefr ~du~\@decisiondate}} \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Besetzung / Composition & \@judges \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Parteien~/~Parties & \@plaintiff \\
+	\vspace{\titlespace} \\
+	& gegen~/~contre \\
+	\vspace{\titlespace} \\
+	& \@respondent \\
+	\vspace{\titlespace} \line(1,0){100} \\
+	Gegenstand~/~Objet & \@subject \\
+	\end{tabular}
+}
+
+\newcommand{\makesummoning}{
+	\selectlanguage{ngerman}
+	\thispagestyle{title}
+	\date{\@casenumber}
+	\title{\@rulinglargede ~vom~/~\@rulinglargefr ~du~\@decisiondate}
+	\enlargethispage{5cm}
+	
+	{ \footnotesize 
+	~ \\
+	\line(1,0){100} \\
+	\@division~Abteilung~/~Section \newline 
+	Geschäftsnummer~/~Numéro~de~dossier \@casenumber} \\
+	\vspace{\summonspace} \\
+	\vspace{\summonspace} \\
+	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	& \Large{\textbf{\@rulinglargede ~vom~\@decisiondate}} \\
+	& \Large{\textbf{\@rulinglargefr ~du~\@decisiondate}} \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Parteien & \@plaintiff \\
+	\vspace{\summonspace} \\
+	& gegen \\
+	\vspace{\summonspace} \\
+	& \@respondent \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Gegenstand & \@subject \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Verfahrenshandlung & \@act \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Öffentlichkeit & \@publicity \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Vorgeladen & \@summonperson \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Ort & \@summonplace \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Termin & \@summondate \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Verschiebung & \requestdelay \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	Säumnisfolgen & \@delayresult \\
+	\end{tabular}
+}
+
+\newcommand{\signature}[1]
+{
+	\vspace{0.3cm}
+	Im Namen des Piratengerichts \\
+	Au nom du Tribunal Pirate \\
+	\vspace{1.3cm} \\
+	#1 \\
+	\vspace{0.3cm}
+}
+
+%%% Start Bilignual %%%
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+\newcommand{\prove}[1]{\textbf{Beweisantrag:} #1}
+\definecolor{ashgrey}{rgb}{0.9, 0.95, 0.91}
+\newcommand{\trans}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
+  \selectlanguage{french}
+  \begin{minipage}{12.7cm}
+  #1
+  \end{minipage}
+  \selectlanguage{ngerman}
+}}
+\newcommand{\translong}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
+  \selectlanguage{french}
+  \begin{minipage}{14.8cm}
+  #1
+  \end{minipage}
+  \selectlanguage{ngerman}
+}}
+\newcommand{\transhead}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
+  \selectlanguage{french}
+  \begin{minipage}{9cm}
+  #1
+  \end{minipage}
+  \selectlanguage{ngerman}
+}}
+\newcommand{\headerspace}{\vspace{0.0cm}}
+\newcommand{\rightone}[1]{%
+\vspace{-0.7cm}
+\begin{flushright}
+#1 \\
+\end{flushright}}
+%%% End Bilignual %%%
