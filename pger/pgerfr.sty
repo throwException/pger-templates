@@ -3,6 +3,7 @@
 \RequirePackage{pger}
 \RequirePackage[babel,french=quotes]{csquotes}
 \RequirePackage[french]{babel}
+\RequirePackage{longtable}
 
 \newcommand{\draft}[1]{
 \RequirePackage{draftwatermark}
@@ -10,10 +11,10 @@
 \SetWatermarkLightness{0.8}
 \SetWatermarkScale{0.9}}
 
-\newcommand{\wordJudge}[1]{\ifequal{#1}{f}{juge}{juge}}
-\newcommand{\wordPresident}[1]{\ifequal{#1}{f}{présidente}{président}}
-\newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{membre présidante}{membre présidant}}
-\newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{juge rapporteur}{juge rapporteur}}
+\renewcommand{\wordJudge}[1]{\ifequal{#1}{f}{juge}{juge}}
+\renewcommand{\wordPresident}[1]{\ifequal{#1}{f}{présidente}{président}}
+\renewcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{membre présidante}{membre présidant}}
+\renewcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{juge rapporteur}{juge rapporteur}}
 
 \author{\@division~Section}
 
@@ -88,7 +89,7 @@
 	\thispagestyle{title}
 	\date{\@casenumber}
 	\title{\@rulinglarge ~du~\@decisiondate}
-	\enlargethispage{5cm}
+	\enlargethispage{3cm}
 	
 	{ \footnotesize 
 	~ \\
@@ -97,29 +98,47 @@
 	Numéro de dossier \@casenumber} \\
 	\vspace{\summonspace} \\
 	\vspace{\summonspace} \\
-	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	\begin{longtable}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Assignant & \@judges \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Parties & \@plaintiff \\
+	\nopagebreak
 	\vspace{\summonspace} \\
+	\nopagebreak
 	& contre \\
+	\nopagebreak
 	\vspace{\summonspace} \\
+	\nopagebreak
 	& \@respondent \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Objet & \@subject \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
+	Acte de procédure & \@act \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
+	Publicité & \@publicity \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Assignée & \@summonperson \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Lieu & \@summonplace \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Date & \@summondate \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Déplacement & \requestdelay \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Implication de retard & \@delayresult \\
-	\end{tabular}
+	\end{longtable}
 }
 
 \newcommand{\signature}[1]
@@ -140,3 +159,4 @@
 \nn{REPLACE THIS!!!}}
 
 \newcommand{\appeal}{REPLACE THIS!!!}
+

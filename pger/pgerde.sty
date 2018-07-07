@@ -3,6 +3,7 @@
 \RequirePackage{pger}
 \RequirePackage[babel,german=quotes]{csquotes}
 \RequirePackage[ngerman]{babel}
+\RequirePackage{longtable}
 
 \newcommand{\draft}[1]{
 \RequirePackage{draftwatermark}
@@ -10,10 +11,10 @@
 \SetWatermarkLightness{0.8}
 \SetWatermarkScale{0.9}}
 
-\newcommand{\wordJudge}[1]{\ifequal{#1}{f}{Richterin}{Richter}}
-\newcommand{\wordPresident}[1]{\ifequal{#1}{f}{Präsidentin}{Präsident}}
-\newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{präsidierendes Mitglied}{präsidierendes Mitglied}}
-\newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{Instruktionsrichterin}{Instruktionsrichter}}
+\renewcommand{\wordJudge}[1]{\ifequal{#1}{f}{Richterin}{Richter}}
+\renewcommand{\wordPresident}[1]{\ifequal{#1}{f}{Präsidentin}{Präsident}}
+\renewcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{präsidierendes Mitglied}{präsidierendes Mitglied}}
+\renewcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{Instruktionsrichterin}{Instruktionsrichter}}
 
 \author{\@division~Abteilung}
 
@@ -87,7 +88,7 @@
 	\thispagestyle{title}
 	\date{\@casenumber}
 	\title{\@rulinglarge ~vom~\@decisiondate}
-	\enlargethispage{5cm}
+	\enlargethispage{3cm}
 	
 	{ \footnotesize 
 	~ \\
@@ -96,31 +97,47 @@
 	Geschäftsnummer \@casenumber} \\
 	\vspace{\summonspace} \\
 	\vspace{\summonspace} \\
-	\begin{tabular}{ p{4.5cm} p{9.5cm} }
+	\begin{longtable}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglarge ~vom~\@decisiondate}} \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
+	Besetzung & \@judges \\
+	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Parteien & \@plaintiff \\
+	\nopagebreak
 	\vspace{\summonspace} \\
+	\nopagebreak
 	& gegen \\
+	\nopagebreak
 	\vspace{\summonspace} \\
+	\nopagebreak
 	& \@respondent \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Gegenstand & \@subject \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Verfahrenshandlung & \@act \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Öffentlichkeit & \@publicity \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Vorgeladen & \@summonperson \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Ort & \@summonplace \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Termin & \@summondate \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Verschiebung & \requestdelay \\
 	\vspace{\summonspace} \line(1,0){100} \\
+	\nopagebreak
 	Säumnisfolgen & \@delayresult \\
-	\end{tabular}
+	\end{longtable}
 }
 
 \newcommand{\signature}[1]
@@ -162,3 +179,4 @@ Gegen \@rulingdefinitarticle~\@ruling~kann innerhalb von 30 Tagen ab Eröffnung 
 
 Die Beschwerde hat die Begehren, deren Begründung mit Angabe der Beweismittel und die Unterschriften des Beschwerdeführers oder seines Vertreters zu enthalten. Der angefochtene Entscheid und die als Beweismittel angerufenen Urkunden sind der Beschwerde beizulegen, soweit der Beschwerdeführer sie in Händen hält. 
 }
+
