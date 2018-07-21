@@ -9,9 +9,10 @@
 \RequirePackage{needspace}
 \RequirePackage{xparse}
 \RequirePackage{quoteswisslaw}
+\RequirePackage{quoteppsreg}
 \RequirePackage{numbering}
 
-\DeclareOption{nonpublic}{\booltrue{nonpublic}}
+\DeclareOption{public}{\booltrue{public}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
 
@@ -24,6 +25,12 @@
 \newcommand{\ruling}[1]{\def\@ruling{#1}}
 \newcommand{\rulinglarge}[1]{\def\@rulinglarge{#1}}
 \newcommand{\rulingdefinitarticle}[1]{\def\@rulingdefinitarticle{#1}}
+\newcommand{\rulingde}[1]{\def\@rulingde{#1}}
+\newcommand{\rulinglargede}[1]{\def\@rulinglargede{#1}}
+\newcommand{\rulingdefinitarticlede}[1]{\def\@rulingdefinitarticlede{#1}}
+\newcommand{\rulingfr}[1]{\def\@rulingfr{#1}}
+\newcommand{\rulinglargefr}[1]{\def\@rulinglargefr{#1}}
+\newcommand{\rulingdefinitarticlefr}[1]{\def\@rulingdefinitarticlefr{#1}}
 \newcommand{\decisiondate}[1]{\def\@decisiondate{#1}}
 \newcommand{\judges}[1]{\def\@judges{#1}}
 \newcommand{\plaintiff}[1]{\def\@plaintiff{#1}}

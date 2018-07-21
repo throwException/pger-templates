@@ -12,8 +12,8 @@
 % -----------------------------------
 % Optionen
 % -----------------------------------
-\newbool{nonpublic}
-\DeclareOption{nonpublic}{\booltrue{nonpublic}}
+\newbool{public}
+\DeclareOption{public}{\booltrue{public}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
 
@@ -22,9 +22,9 @@
 % -----------------------------------
 \newcommand{\ifequal}[4]{\ifthenelse{\equal{#1}{#2}}{#3}{#4}}
 \newcommand{\mkcmd}[2]{\expandafter\def\csname#1\endcsname{#2}}
-\newcommand{\pseudonym}[3]{\ifbool{nonpublic}{\mkcmd{#1}{#3.\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
-\newcommand{\anonym}[2]{\ifbool{nonpublic}{\mkcmd{#1}{\_\_\_\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
-\newcommand{\nonpublic}[1]{\ifbool{nonpublic}{}{#1}}
+\newcommand{\pseudonym}[3]{\ifbool{public}{\mkcmd{#1}{#3.\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
+\newcommand{\anonym}[2]{\ifbool{public}{\mkcmd{#1}{\_\_\_\_\_\_\_\_\_\_\_\_\_}}{\mkcmd{#1}{#2}}}
+\newcommand{\nonpublic}[1]{\ifbool{public}{}{#1}}
 
 % -----------------------------------
 % Inkludiere Richter

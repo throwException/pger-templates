@@ -2,22 +2,56 @@
 
 \RequirePackage{xspace}
 
+\providecaptionname{ngerman}{\wordJudgeFemale}{Richterin}
+\providecaptionname{ngerman}{\wordJudgeMale}{Richter}
+\providecaptionname{ngerman}{\wordPresidentFemale}{Präsidentin}
+\providecaptionname{ngerman}{\wordPresidentMale}{Präsident}
+\providecaptionname{ngerman}{\wordVicePresidentFemale}{Vizepräsidentin}
+\providecaptionname{ngerman}{\wordVicePresidentMale}{Vizepräsident}
+\providecaptionname{ngerman}{\wordPresidingMemberFemale}{präsidierendes Mitglied}
+\providecaptionname{ngerman}{\wordPresidingMemberMale}{präsidierendes Mitglied}
+\providecaptionname{ngerman}{\wordInstructingJudgeFemale}{Instruktionsrichterin}
+\providecaptionname{ngerman}{\wordInstructingJudgeMale}{Instruktionsrichter}
+
+\providecaptionname{french}{\wordJudgeFemale}{juge}
+\providecaptionname{french}{\wordJudgeMale}{juge}
+\providecaptionname{french}{\wordPresidentFemale}{présidente}
+\providecaptionname{french}{\wordPresidentMale}{président}
+\providecaptionname{french}{\wordVicePresidentFemale}{vice-présidente}
+\providecaptionname{french}{\wordVicePresidentMale}{vice-président}
+\providecaptionname{french}{\wordPresidingMemberFemale}{membre présidente}
+\providecaptionname{french}{\wordPresidingMemberMale}{membre président}
+\providecaptionname{french}{\wordInstructingJudgeFemale}{juge rapporteure}
+\providecaptionname{french}{\wordInstructingJudgeMale}{juge rapporteur}
+
+\newcommand{\wordJudge}[1]{\ifequal{#1}{f}{\wordJudgeFemale}{\wordJudgeMale}}
+\newcommand{\wordPresident}[1]{\ifequal{#1}{f}{\wordPresidentFemale}{\wordPresidentMale}}
+\newcommand{\wordVicePresident}[1]{\ifequal{#1}{f}{\wordVicePresidentFemale}{\wordVicePresidentMale}}
+\newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{\wordPresidingMemberFemale}{\wordPresidingMemberMale}}
+\newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{\wordInstructingJudgeFemale}{\Instruktionsrichter}}
+
 \newcommand{\judge}[4]{%
 \mkcmd{#1}{\textit{#2}\xspace}
 \mkcmd{#1r}{\wordJudge{#3} \textit{#2}\xspace}
-\mkcmd{#1p}{\wordJudge{#3} \textit{#2}\xspace, \ifequal{#4}{p}{\wordPresident{#3}}{\wordPresidingMember{#3}}}
+\mkcmd{#1p}{\wordJudge{#3} \textit{#2}\xspace,~%
+\ifequal{#4}{p}%
+{\wordPresident{#3}}%
+{\ifequal{#4}{v}%
+{\wordVicePresident{#3}}%
+{\wordPresidingMember{#3}}%
+}}%
 \mkcmd{#1i}{\wordJudge{#3} \textit{#2}\xspace, \wordInstructingJudge{#3}}
 }
 
 % Definition of judges:
-% Initials, Fullname, Gender (m/f), President (p)
+% Initials, Fullname, Gender (m/f), President (p), Vice-president (v)
 
 \judge{ST}{Stefan Thöni}{m}{p}
+\judge{JR}{Jim Rogantini}{m}{v}
 \judge{AP}{Anna Barbara Payer}{f}{}
 \judge{FH}{Falk Hirschel}{m}{}
 \judge{FR}{Fabian Rousseau}{m}{}
 \judge{ME}{Michael Ebner}{m}{}
-\judge{JR}{Jim Rogantini}{m}{}
 \judge{PG}{Perica Grasarevic}{m}{}
 \judge{TG}{Thomas Marc Göbel}{m}{}
 
