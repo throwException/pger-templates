@@ -1,4 +1,4 @@
-﻿\ProvidesPackage{pgerjudges}[2014/12/11 (Stefan Thöni)]
+﻿﻿\ProvidesPackage{pgerjudges}[2014/12/11 (Stefan Thöni)]
 
 \RequirePackage{xspace}
 
@@ -30,28 +30,28 @@
 \newcommand{\wordPresidingMember}[1]{\ifequal{#1}{f}{\wordPresidingMemberFemale}{\wordPresidingMemberMale}}
 \newcommand{\wordInstructingJudge}[1]{\ifequal{#1}{f}{\wordInstructingJudgeFemale}{\Instruktionsrichter}}
 
-\newcommand{\judge}[4]{%
-\mkcmd{#1}{\textit{#2}\xspace}
-\mkcmd{#1r}{\wordJudge{#3} \textit{#2}\xspace}
-\mkcmd{#1p}{\wordJudge{#3} \textit{#2}\xspace,~%
-\ifequal{#4}{p}%
-{\wordPresident{#3}}%
-{\ifequal{#4}{v}%
-{\wordVicePresident{#3}}%
-{\wordPresidingMember{#3}}%
+\newcommand{\judge}[5]{%
+\mkcmd{#1}{\textit{#3}\xspace}
+\mkcmd{#1r}{\wordJudge{#4}~\ifequal{#2}{}{}{#2~}\textit{#3}\xspace}
+\mkcmd{#1p}{\wordJudge{#4}~\ifequal{#2}{}{}{#2~}\textit{#3}\xspace,~%
+\ifequal{#5}{p}%
+{\wordPresident{#4}}%
+{\ifequal{#5}{v}%
+{\wordVicePresident{#4}}%
+{\wordPresidingMember{#4}}%
 }}%
-\mkcmd{#1i}{\wordJudge{#3} \textit{#2}\xspace, \wordInstructingJudge{#3}}
+\mkcmd{#1i}{\wordJudge{#4}~\textit{#3}\xspace,~\wordInstructingJudge{#4}}
 }
 
 % Definition of judges:
-% Initials, Fullname, Gender (m/f), President (p), Vice-president (v)
+% Initials, Title, Fullname, Gender (m/f), President (p), Vice-president (v)
 
-\judge{ST}{Stefan Thöni}{m}{p}
-\judge{JR}{Jim Rogantini}{m}{v}
-\judge{AP}{Anna Barbara Payer}{f}{}
-\judge{FH}{Falk Hirschel}{m}{}
-\judge{FR}{Fabian Rousseau}{m}{}
-\judge{ME}{Michael Ebner}{m}{}
-\judge{PG}{Perica Grasarevic}{m}{}
-\judge{TG}{Thomas Marc Göbel}{m}{}
+\judge{ST}{}{Stefan~Thöni}{m}{p}
+\judge{JR}{MLaw}{Jim~Rogantini}{m}{v}
+\judge{AP}{}{Anna~Barbara~Payer}{f}{}
+\judge{FH}{Ass.~iur.}{Falk~Hirschel}{m}{}
+\judge{FR}{}{Fabian~Rousseau}{m}{}
+\judge{ME}{}{Michael~Ebner}{m}{}
+\judge{PG}{MLaw}{Perica~Grasarevic}{m}{}
+\judge{TG}{}{Thomas~Marc~Göbel}{m}{}
 

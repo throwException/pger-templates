@@ -16,8 +16,8 @@
 	\rulingde{Urteil}
 	\rulinglargede{Urteil}
 	\rulingdefinitarticlede{dieses}
-	\rulingfr{jugement}
-	\rulinglargefr{Jugement}
+	\rulingfr{arrêt}
+	\rulinglargefr{Arrêt}
 	\rulingdefinitarticlefr{ce}
 }
 
@@ -82,7 +82,11 @@
 	\vspace{\titlespace} \\
 	\begin{tabular}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglargede ~vom~\@decisiondatede}} \\
-	& \Large{\textbf{\@rulinglargefr ~du~\@decisiondatefr}} \\
+    \ifequal{\@notificationdatede}{}{}{%
+    & zugestellt am \@notificationdatede \\ }
+    \rule{0pt}{3ex} & \Large{\textbf{\@rulinglargefr ~du~\@decisiondatefr}} \\
+    \ifequal{\@notificationdatefr}{}{}{%
+    & comuniqué le \@notificationdatefr \\ }
 	\vspace{\titlespace} \line(1,0){100} \\
 	Besetzung / Composition & \@judges \\
 	\vspace{\titlespace} \line(1,0){100} \\

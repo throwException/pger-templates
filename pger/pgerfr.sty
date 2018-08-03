@@ -19,8 +19,8 @@
 \author{\@division~Section}
 
 \newcommand{\judgement}{
-	\ruling{jugement}
-	\rulinglarge{Jugement}
+	\ruling{arrêt}
+	\rulinglarge{Arrêt}
 	\rulingdefinitarticle{ce}
 }
 
@@ -70,6 +70,8 @@
 	\vspace{\titlespace} \\
 	\begin{tabular}{ p{4.5cm} p{9.5cm} }
 	& \Large{\textbf{\@rulinglarge ~du~\@decisiondate}} \\
+	\ifequal{\@notificationdate}{}{}{%
+    & comuniqué le \@notificationdate \\ }
 	\vspace{\titlespace} \line(1,0){100} \\
 	Composition & \@judges \\
 	\vspace{\titlespace} \line(1,0){100} \\
