@@ -153,30 +153,26 @@
 }
 
 %%% Start Bilignual %%%
-\newcommand{\todo}[1]{\textcolor{red}{#1}}
+\RequirePackage{mdframed}
+\definecolor{lime}{rgb}{0.9, 0.95, 0.91}
 \newcommand{\prove}[1]{\textbf{Beweisantrag:} #1}
-\definecolor{ashgrey}{rgb}{0.9, 0.95, 0.91}
-\newcommand{\trans}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
+
+\newcommand{\trans}[1]{%
   \selectlanguage{french}
-  \begin{minipage}{12.7cm}
+  \begin{mdframed}[backgroundcolor=lime,leftmargin=-0.5cm,innerleftmargin=0.5cm,rightmargin=-0.5cm,innerrightmargin=0.5cm,skipabove=0.2cm,skipbelow=0.2cm,linecolor=lime]
   #1
-  \end{minipage}
+  \end{mdframed}
   \selectlanguage{ngerman}
-}}
-\newcommand{\translong}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
+}
+\newcommand{\translong}[1]{\trans{#1}}
+\newcommand{\transhead}[1]{%
   \selectlanguage{french}
-  \begin{minipage}{14.8cm}
+  \begin{mdframed}[backgroundcolor=lime,leftmargin=-0.2cm,innerleftmargin=0.2cm,rightmargin=-0.2cm,innerrightmargin=0.2cm,skipabove=0.2cm,skipbelow=0.2cm,linecolor=lime]
   #1
-  \end{minipage}
+  \end{mdframed}
   \selectlanguage{ngerman}
-}}
-\newcommand{\transhead}[1]{\hspace{-0.3cm}\fcolorbox{ashgrey}{ashgrey}{
-  \selectlanguage{french}
-  \begin{minipage}{9cm}
-  #1
-  \end{minipage}
-  \selectlanguage{ngerman}
-}}
+}
+
 \newcommand{\headerspace}{\vspace{0.0cm}}
 \newcommand{\rightone}[1]{%
 \vspace{-0.7cm}
